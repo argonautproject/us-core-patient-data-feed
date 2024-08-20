@@ -2,19 +2,19 @@
 
 ## 1. Overview
 
-This guidance describes the "US Core Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a standardized set of named filters and resources that servers may support for subscriptions related to US Core data.
+This guidance describes the "Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a standardized set of named filters and resources that servers may support for subscriptions related to US Core data.
 
 ## 2. Canonical URL
 
-The canonical URL for the US Core Patient Data Feed is:
+The canonical URL for the Patient Data Feed is:
 
 `http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
-Clients should use this URL in their Subscription resources to indicate they are requesting the US Core Patient Data Feed.
+Clients should use this URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
 
 ## 3. Supported Resources and Standardized Filters
 
-The following list defines the resources and their associated standardized filters for the US Core Patient Feed. Servers may choose to support any subset of these resources and filters.
+The following list defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
 
 ### AllergyIntolerance
 - patient: Filter by patient
@@ -102,17 +102,17 @@ The following list defines the resources and their associated standardized filte
 
 ## 4. Notification Triggers
 
-Servers supporting the US Core Patient Data Feed have some flexibility in determining what changes trigger notifications, but must adhere to the following guidelines:
+Servers supporting the Patient Data Feed have some flexibility in determining what changes trigger notifications, but must adhere to the following guidelines:
 
-1. Servers SHALL support notifications when resource statuses change for any resources that they support within the US Core Patient Data Feed. Note that resource creation is also considered a status change (from non-existent to existent) for these purposes.
+1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed. Note that resource creation is also considered a status change (from non-existent to existent) for these purposes.
 
 2. Servers have discretion over what other changes trigger notifications (e.g., updates to specific fields) and SHOULD clearly document their notification triggers in their developer-facing documentation.
 
 ## 5. Implementation Guidelines
 
-1. Support for the US Core Patient Data Feed is optional for servers implementing US Core.
+1. Support for the Patient Data Feed is optional for servers implementing US Core.
 
-2. Servers that choose to support the US Core Patient Data Feed SHOULD clearly document which resources and filters they support in their developer-facing documentation.
+2. Servers that choose to support the Patient Data Feed SHOULD clearly document which resources and filters they support in their developer-facing documentation.
 
 3. When implementing a filter, servers SHOULD adhere to the standard FHIR search parameter definitions for that filter.
 
@@ -173,6 +173,6 @@ In this example, the client is requesting notifications for:
 1. Laboratory observations for a specific patient (123456)
 2. Laboratory diagnostic reports for the same patient
 
-The `criteria` element contains the canonical URL for the US Core Patient Data Feed topic. The `_criteria` element uses extensions to specify the filters for each resource type. This approach allows for multiplexing different resource types within a single subscription.
+The `criteria` element contains the canonical URL for the Patient Data Feed topic. The `_criteria` element uses extensions to specify the filters for each resource type. This approach allows for multiplexing different resource types within a single subscription.
 
 The server would process this request based on its supported features and either accept the subscription or reject it if it doesn't support the requested filters or resources.
