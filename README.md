@@ -59,16 +59,13 @@ The following table defines the resources and their associated standardized filt
 2. Resource and Filter Support
    1. Servers SHALL support at least one resource type from the list in Section 3.
    1. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
-   1. Servers MAY support additional filters as listed in Section 3 for each resource type.
-   1. Servers MAY add custom filters beyond those listed, and SHOULD use existing search parameter names when applicable.
-   1. When implementing a filter, servers SHALL adhere to the standard FHIR search parameter definitions for that filter.
-   2. When implementing a filter, servers SHALL document this support in their developer documentation.
+   1. Servers MAY support the additional filters listed in Section 3 for each resource type.
+   1. Servers MAY support filters beyond those listed in Section 3 for each resource type.
+   1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 3. Notification Triggers
-   1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed.
-      - Note: Resource creation is considered a status change (from non-existent to existent) for these purposes.
+   1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed. (_Note: Resource creation is considered a status change for these purposes._)
    1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
-   1. Servers SHOULD clearly document their notification triggers in their developer-facing documentation.
 
 4. Subscription Channel and Payload
    1. Servers SHALL support the `rest-hook` channel type for notification delivery.
@@ -76,8 +73,10 @@ The following table defines the resources and their associated standardized filt
    1. Servers MAY support additional channel types and payload content types, and SHOULD clearly document any additional supported options.
 
 5. Error Handling and Documentation
+   1. Servers SHALL clearly document the following in their developer-facing documentation:
+      1. Supported resources and filters
+      1. Supported notification triggers
    1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
-   1. Servers SHALL clearly document which resources and filters they support for the Patient Data Feed in their developer-facing documentation.
 
 6. Security
    1. Servers SHALL implement appropriate access control for managing subscriptions.
