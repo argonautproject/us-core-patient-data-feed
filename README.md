@@ -50,39 +50,44 @@ The following table defines the resources and their associated standardized filt
 > 3. The community will be notified of any updates to this guidance.
 > 4. Version history will be maintained to allow implementers to track changes over time.
 
-## 4. Notification Triggers
+## 4. Conformance
 
-Servers supporting the Patient Data Feed have some flexibility in determining what changes trigger notifications, but must adhere to the following guidelines:
+1. General Requirements
+   1. Support for the Patient Data Feed is optional for servers implementing US Core.
+   1. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
 
-1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed. Note that resource creation is also considered a status change (from non-existent to existent) for these purposes.
+2. Resource and Filter Support
+   1. Servers SHALL support at least one resource type from the list in Section 3.
+   1. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
+   1. Servers MAY support additional filters as listed in Section 3 for each resource type.
+   1. Servers MAY add custom filters beyond those listed, and SHOULD clearly document any custom filters.
+   1. When implementing a filter, servers SHALL adhere to the standard FHIR search parameter definitions for that filter.
 
-2. Servers have discretion over what other changes trigger notifications (e.g., updates to specific fields) and SHOULD clearly document their notification triggers in their developer-facing documentation.
+3. Notification Triggers
+   1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed.
+      - Note: Resource creation is considered a status change (from non-existent to existent) for these purposes.
+   1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
+   1. Servers SHOULD clearly document their notification triggers in their developer-facing documentation.
 
-## 5. Implementation Guidelines
+4. Subscription Channel and Payload
+   1. Servers SHALL support the `rest-hook` channel type for notification delivery.
+   1. Servers SHALL support the `id-only` payload type for notifications.
+   1. Servers MAY support additional channel types and payload content types, and SHOULD clearly document any additional supported options.
 
-1. Support for the Patient Data Feed is optional for servers implementing US Core.
+5. Error Handling and Documentation
+   1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+   1. Servers SHALL clearly document which resources and filters they support for the Patient Data Feed in their developer-facing documentation.
 
-2. Servers that choose to support the Patient Data Feed SHOULD clearly document which resources and filters they support in their developer-facing documentation.
+6. Security
+   1. Servers SHALL implement appropriate access control for managing subscriptions.
+   1. Servers SHALL manage authorization for delivering notifications.
+   1. Existing security practices and standards for FHIR implementations SHALL be applied to subscription management and notification delivery.
 
-3. When implementing a filter, servers SHOULD adhere to the standard FHIR search parameter definitions for that filter.
-
-4. Servers MAY add custom filters beyond those listed, and SHOULD clearly document any custom filters.
-
-5. Clients SHOULD be prepared to handle subscription requests being rejected if they include unsupported filters or resources.
-
-6. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
-
-7. Servers SHALL support the `rest-hook` channel type for notification delivery.
-
-8. Servers SHALL support the `id-only` payload type for notifications.
-
-9. Servers MAY support additional channel types and payload content types, but SHOULD clearly document any additional supported options.
-
-## 6. Security Considerations
+## 5. Security Considerations
 
 Servers are responsible for implementing appropriate access control and managing authorization for subscriptions and notifications. Existing security practices and standards for FHIR implementations should be applied to subscription management and notification delivery.
 
-## 7. Topic Modeling and Discovery
+## 6. Topic Modeling and Discovery
 
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a subscription to a US Core Patient Data Feed.
 
@@ -95,7 +100,7 @@ Future work may include:
 
 Until then, implementers should rely on this guidance and server-specific documentation for creating and managing subscriptions.
 
-## 8. Example Subscription Request
+## 7. Example Subscription Request
 
 Here's an example of how a client might request a subscription for laboratory observations and diagnostic reports:
 
