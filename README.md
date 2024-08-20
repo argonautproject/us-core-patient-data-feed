@@ -10,7 +10,7 @@ The canonical topic URL for the Patient Data Feed is:
 
 `http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
-Clients should use this topic URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
+Clients use this topic URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
 
 ## 3. Supported Resources and Standardized Filters
 
@@ -38,17 +38,15 @@ The following table defines the resources and their associated standardized filt
 | ServiceRequest | patient, category, code |
 | Specimen | patient |
 
-> **Maintenance of Guidance**
+> **Maintenance of this Table**
 > 
-> This list of supported resources and filters will be maintained as follows:
+> This table of supported resources and filters will be maintained as follows:
 > 
 > 1. Updates will be made any time new patient-focused resources are added to US Core.
 > 2. For each new resource, filters will be predefined to include:
 >    - Patient context
 >    - Any category-level codes
 >    - Any instance-level codes
-> 3. The community will be notified of any updates to this guidance.
-> 4. Version history will be maintained to allow implementers to track changes over time.
 
 ## 4. Conformance
 
