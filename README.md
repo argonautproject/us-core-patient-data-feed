@@ -125,8 +125,6 @@ In this example, the client is requesting notifications for:
 
 The `criteria` element contains the canonical URL for the Patient Data Feed topic. The `_criteria` element uses extensions to specify the filters for each resource type. This approach allows for multiplexing different resource types within a single subscription.
 
-The `channel` element specifies the use of the `rest-hook` channel type and the `id-only` payload content, as required by this implementation guidance.
-
 The server would process this request based on its supported features and either accept the subscription or reject it if it doesn't support the requested filters or resources.
 
 ## 6. Topic Modeling and Discovery (*future work*)
