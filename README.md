@@ -1,4 +1,4 @@
-# Patient Data Feed: Subscription Implementation Guidance
+# Patient Data Feed: Subscriptions
 
 ## 1. Overview
 
