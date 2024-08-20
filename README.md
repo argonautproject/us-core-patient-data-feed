@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This guidance describes the "Patient Data Feed", an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resources with named filters that servers MAY support to enable subscriptions for US Core patient-focused data.
+This guidance describes the "Patient Data Feed", an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resources with named filters that servers MAY support to enable subscriptions to patient-focused data.
 
 ## 2. Canonical Topic URL
 
@@ -87,7 +87,7 @@ Servers are responsible for implementing appropriate access control and managing
 
 ## 6. Topic Modeling and Discovery
 
-The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a subscription to a US Core Patient Data Feed.
+The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a Subscription to a Patient Data Feed.
 
 While formal topic publication is not yet standardized, interoperability can still be achieved around subscriptions using this guidance. Servers and clients can agree on the canonical URL, supported resources, and filters as described in this document.
 
