@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This guidance describes the "Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resourcesw with named filters that servers MAY support to enable subscriptions for US Core patient-focused data.
+This guidance describes the "Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resources with named filters that servers MAY support to enable subscriptions for US Core patient-focused data.
 
 ## 2. Canonical URL
 
@@ -14,79 +14,29 @@ Clients should use this topic URL in their Subscription resources to indicate th
 
 ## 3. Supported Resources and Standardized Filters
 
-The following list defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
+The following table defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
 
-### AllergyIntolerance
-- patient: Filter by patient
-
-### CarePlan
-- patient: Filter by patient
-- category: Filter by CarePlan category
-
-### CareTeam
-- patient: Filter by patient
-
-### Condition
-- patient: Filter by patient
-- category: Filter by Condition category
-- code: Filter by Condition code
-
-### Coverage
-- patient: Filter by patient (beneficiary)
-
-### DiagnosticReport
-- patient: Filter by patient
-- category: Filter by DiagnosticReport category
-- code: Filter by DiagnosticReport code
-
-### DocumentReference
-- patient: Filter by patient
-- category: Filter by DocumentReference category
-- type: Filter by DocumentReference type
-
-### Encounter
-- patient: Filter by patient
-- type: Filter by Encounter type
-
-### Goal
-- patient: Filter by patient
-
-### Immunization
-- patient: Filter by patient
-
-### MedicationDispense
-- patient: Filter by patient
-- type: Filter by MedicationDispense type
-
-### MedicationRequest
-- patient: Filter by patient
-
-### Observation
-- patient: Filter by patient
-- category: Filter by Observation category
-- code: Filter by Observation code
-
-### Patient
-- identifier: Filter by Patient identifier
-
-### Procedure
-- patient: Filter by patient
-- code: Filter by Procedure code
-
-### QuestionnaireResponse
-- patient: Filter by patient
-
-### RelatedPerson
-- patient: Filter by patient
-
-### ServiceRequest
-- patient: Filter by patient
-- category: Filter by ServiceRequest category
-- code: Filter by ServiceRequest code
-
-### Specimen
-- patient: Filter by patient
-
+| Resource | Filters |
+|----------|---------|
+| AllergyIntolerance | patient |
+| CarePlan | patient, category |
+| CareTeam | patient |
+| Condition | patient, category, code |
+| Coverage | patient |
+| DiagnosticReport | patient, category, code |
+| DocumentReference | patient, category, type |
+| Encounter | patient, type |
+| Goal | patient |
+| Immunization | patient |
+| MedicationDispense | patient, type |
+| MedicationRequest | patient |
+| Observation | patient, category, code |
+| Patient | identifier |
+| Procedure | patient, code |
+| QuestionnaireResponse | patient |
+| RelatedPerson | patient |
+| ServiceRequest | patient, category, code |
+| Specimen | patient |
 
 > **Maintenance of Guidance**
 > 
@@ -121,6 +71,12 @@ Servers supporting the Patient Data Feed have some flexibility in determining wh
 5. Clients SHOULD be prepared to handle subscription requests being rejected if they include unsupported filters or resources.
 
 6. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+
+7. Servers SHALL support the `rest-hook` channel type for notification delivery.
+
+8. Servers SHALL support the `id-only` payload type for notifications.
+
+9. Servers MAY support additional channel types and payload content types, but SHOULD clearly document any additional supported options.
 
 ## 6. Security Considerations
 
@@ -164,7 +120,15 @@ Here's an example of how a client might request a subscription for laboratory ob
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://client.example.org/fhir/subscription-notification",
-    "payload": "application/fhir+json"
+    "payload": "application/fhir+json",
+    "_payload": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+          "valueCode": "id-only"
+        }
+      ]
+    }
   }
 }
 ```
@@ -174,5 +138,7 @@ In this example, the client is requesting notifications for:
 2. Laboratory diagnostic reports for the same patient
 
 The `criteria` element contains the canonical URL for the Patient Data Feed topic. The `_criteria` element uses extensions to specify the filters for each resource type. This approach allows for multiplexing different resource types within a single subscription.
+
+The `channel` element specifies the use of the `rest-hook` channel type and the `id-only` payload content, as required by this implementation guidance.
 
 The server would process this request based on its supported features and either accept the subscription or reject it if it doesn't support the requested filters or resources.
