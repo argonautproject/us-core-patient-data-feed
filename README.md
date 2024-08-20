@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This guidance describes the "Patient Data Feed", an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resources with named filters that servers MAY support to enable subscriptions to patient-focused data.
+This guidance describes the "Patient Data Feed", an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resources with named filters that servers can support to enable subscriptions to patient-focused data.
 
 ## 2. Canonical Topic URL
 
