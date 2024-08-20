@@ -1,4 +1,4 @@
-# US Core Patient Data Feed: Subscription Implementation Guidance
+# Patient Data Feed: Subscription Implementation Guidance
 
 ## 1. Overview
 
@@ -8,7 +8,7 @@ This guidance describes the "US Core Patient Data Feed" capability, an optional 
 
 The canonical URL for the US Core Patient Data Feed is:
 
-`http://hl7.org/fhir/us/core/SubscriptionTopic/us-core-patient-data-feed`
+`http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
 Clients should use this URL in their Subscription resources to indicate they are requesting the US Core Patient Data Feed.
 
@@ -18,7 +18,6 @@ The following list defines the resources and their associated standardized filte
 
 ### AllergyIntolerance
 - patient: Filter by patient
-- clinical-status: Filter by clinical status
 
 ### CarePlan
 - patient: Filter by patient
@@ -149,7 +148,7 @@ Here's an example of how a client might request a subscription for laboratory ob
   "resourceType": "Subscription",
   "status": "requested",
   "reason": "Notify on new lab results and reports",
-  "criteria": "http://hl7.org/fhir/us/core/SubscriptionTopic/us-core-patient-data-feed",
+  "criteria": "http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed",
   "_criteria": {
     "extension": [
       {
