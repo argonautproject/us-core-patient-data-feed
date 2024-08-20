@@ -61,8 +61,8 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
    1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
    1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
-3. Notification Triggers
-   1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed. (_Note: Resource creation is considered a status change for these purposes._)
+3. Notification Triggers for Supported Resource Types
+   1. Servers SHALL support notifications when a resource is first created and when its status changes.
    1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
 
 4. Subscription Channel and Payload
@@ -78,7 +78,7 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
 
 7. Handling Multiple Resource Types and Filters
    1. Clients MAY include filters for multiple resource types in a single Subscription request.
-   1. Servers SHOULD adjust the requested Subscription before persisting it, based on what it can support.
+   1. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
    1. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
    * _Examples_
        * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
