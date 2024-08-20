@@ -76,12 +76,13 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
       1. Supported notification triggers
    1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
-7. Handling Filters for Multiple Resource Types
+7. Handling Multiple Resource Types and Filters
    1. Clients MAY include filters for multiple resource types in a single Subscription request.
-   1. Servers SHOULD adjust the requested Subscription before persisting it, in order to communicate what filters will be honored.
-       1. _Example:_ A server could remove an unsupported resource type from the Subscription to convey the lack of support.
-       1. _Example:_ A server could append a "category" filter clause to indicate that only certain categories of Observation are supported.
-   1. Clients SHOULD review the persisted Subscription resource to understand which filters are in effect.
+   1. Servers SHOULD adjust the requested Subscription before persisting it, based on what it can support.
+   1. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
+   * _Examples_
+       * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
+       * A server might append a "category" filter clause to the requested Subscription's Observation filter to indicate that other categories will never trigger notifications.
 
 ## 5. Example Subscription Request
 
