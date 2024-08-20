@@ -81,6 +81,13 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
    1. Servers SHALL manage authorization for delivering notifications.
    1. Existing security practices and standards for FHIR implementations SHALL be applied to subscription management and notification delivery.
 
+7. Handling Filters for Multiple Resource Types
+   1. Clients MAY include filters for multiple resource types in a single Subscription request.
+   1. Servers SHOULD adjust the requested Subscription before persisting it, in order to communicate what filters will be honored.
+       1. _Example:_ A server could remove an unsupported resource type from the Subscription to convey the lack of support.
+       1. _Example:_ A server could append a "category" filter clause to indicate that only certain categories of Observation are supported.
+   1. Clients SHOULD review the persisted Subscription resource to understand which filters are in effect.
+
 ## 5. Example Subscription Request
 
 Here's an example of how a client might request a subscription for laboratory observations and diagnostic reports:
