@@ -2,15 +2,15 @@
 
 ## 1. Overview
 
-This guidance describes the "Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a standardized set of named filters and resources that servers may support for subscriptions related to US Core data.
+This guidance describes the "Patient Data Feed" capability, an optional feature for servers implementing US Core. It defines a canonical topic URL and a set of resourcesw with named filters that servers MAY support to enable subscriptions for US Core patient-focused data.
 
 ## 2. Canonical URL
 
-The canonical URL for the Patient Data Feed is:
+The canonical topic URL for the Patient Data Feed is:
 
 `http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
-Clients should use this URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
+Clients should use this topic URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
 
 ## 3. Supported Resources and Standardized Filters
 
