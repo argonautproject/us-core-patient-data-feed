@@ -133,13 +133,9 @@ The server would process this request based on its supported features and either
 
 ## 6. Topic Modeling and Discovery (*future work*)
 
-The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a Subscription to a Patient Data Feed.
-
-While formal topic publication is not yet standardized, interoperability can still be achieved around subscriptions using the guidance above. Servers and clients can agree on the canonical URL, supported resources, and filters as described in this document.
+The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, and filters as described in this document.
 
 Future work may include:
-1. Standardizing the structure and content of SubscriptionTopic resources
-2. Defining discovery mechanisms for available topics
+1. Improving the structure and content of SubscriptionTopic resources
+2. Enhancing discovery mechanisms for available topics, triggers, and filters
 3. Formalizing the compositional nature of topics and triggers
-
-Until then, implementers should rely on this guidance and server-specific documentation for creating and managing subscriptions.
