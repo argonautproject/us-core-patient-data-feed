@@ -14,9 +14,80 @@ Clients should use this URL in their Subscription resources to indicate they are
 
 ## 3. Supported Resources and Standardized Filters
 
-The following list defines the resources and their associated standardized filters for the US Core Patient Data Feed. Servers may choose to support any subset of these resources and filters.
+The following list defines the resources and their associated standardized filters for the US Core Patient Feed. Servers may choose to support any subset of these resources and filters.
 
-[List of resources and filters remains unchanged]
+### AllergyIntolerance
+- patient: Filter by patient
+- clinical-status: Filter by clinical status
+
+### CarePlan
+- patient: Filter by patient
+- category: Filter by CarePlan category
+
+### CareTeam
+- patient: Filter by patient
+
+### Condition
+- patient: Filter by patient
+- category: Filter by Condition category
+- code: Filter by Condition code
+
+### Coverage
+- patient: Filter by patient (beneficiary)
+
+### DiagnosticReport
+- patient: Filter by patient
+- category: Filter by DiagnosticReport category
+- code: Filter by DiagnosticReport code
+
+### DocumentReference
+- patient: Filter by patient
+- category: Filter by DocumentReference category
+- type: Filter by DocumentReference type
+
+### Encounter
+- patient: Filter by patient
+- type: Filter by Encounter type
+
+### Goal
+- patient: Filter by patient
+
+### Immunization
+- patient: Filter by patient
+
+### MedicationDispense
+- patient: Filter by patient
+- type: Filter by MedicationDispense type
+
+### MedicationRequest
+- patient: Filter by patient
+
+### Observation
+- patient: Filter by patient
+- category: Filter by Observation category
+- code: Filter by Observation code
+
+### Patient
+- identifier: Filter by Patient identifier
+
+### Procedure
+- patient: Filter by patient
+- code: Filter by Procedure code
+
+### QuestionnaireResponse
+- patient: Filter by patient
+
+### RelatedPerson
+- patient: Filter by patient
+
+### ServiceRequest
+- patient: Filter by patient
+- category: Filter by ServiceRequest category
+- code: Filter by ServiceRequest code
+
+### Specimen
+- patient: Filter by patient
+
 
 > **Maintenance of Guidance**
 > 
