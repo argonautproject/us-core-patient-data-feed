@@ -60,8 +60,9 @@ The following table defines the resources and their associated standardized filt
    1. Servers SHALL support at least one resource type from the list in Section 3.
    1. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
    1. Servers MAY support additional filters as listed in Section 3 for each resource type.
-   1. Servers MAY add custom filters beyond those listed, and SHOULD clearly document any custom filters.
+   1. Servers MAY add custom filters beyond those listed, and SHOULD use existing search parameter names when applicable.
    1. When implementing a filter, servers SHALL adhere to the standard FHIR search parameter definitions for that filter.
+   2. When implementing a filter, servers SHALL document this support in their developer documentation.
 
 3. Notification Triggers
    1. Servers SHALL support notifications when resource statuses change for any resources that they support within the Patient Data Feed.
