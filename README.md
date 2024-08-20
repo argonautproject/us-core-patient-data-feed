@@ -14,7 +14,9 @@ Clients use this topic URL in their Subscription resources to indicate they are 
 
 ## 3. Supported Resources and Standardized Filters
 
-The following table defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
+Table 1 defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
+
+Table 1: Supported Resources and Standardized Filters for Patient Data Feed
 
 | Resource | Filters |
 |----------|---------|
@@ -38,9 +40,9 @@ The following table defines the resources and their associated standardized filt
 | ServiceRequest | patient, category, code |
 | Specimen | patient |
 
-> **Maintenance of this Table**
+> **Maintenance of Table 1**
 > 
-> This table of supported resources and filters will be maintained as follows:
+> Table 1 of supported resources and filters will be maintained as follows:
 > 
 > 1. Updates will be made any time new patient-focused resources are added to US Core.
 > 2. For each new resource, filters will be predefined to include:
@@ -55,10 +57,10 @@ The following table defines the resources and their associated standardized filt
    1. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
 
 2. Resource and Filter Support
-   1. Servers SHALL support at least one resource type from the list in Section 3.
+   1. Servers SHALL support at least one resource type from the list in Table 1.
    1. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
-   1. Servers MAY support the additional filters listed in Section 3 for each resource type.
-   1. Servers MAY support filters beyond those listed in Section 3 for each resource type.
+   1. Servers MAY support the additional filters listed in Table 1 for each resource type.
+   1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
    1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 3. Notification Triggers
@@ -141,4 +143,3 @@ Future work may include:
 3. Formalizing the compositional nature of topics and triggers
 
 Until then, implementers should rely on this guidance and server-specific documentation for creating and managing subscriptions.
-
