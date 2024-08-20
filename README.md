@@ -129,7 +129,7 @@ The `channel` element specifies the use of the `rest-hook` channel type and the 
 
 The server would process this request based on its supported features and either accept the subscription or reject it if it doesn't support the requested filters or resources.
 
-## 6. Topic Modeling and Discovery (*out of scope* for now).
+## 6. Topic Modeling and Discovery (*future work*)
 
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a Subscription to a Patient Data Feed.
 
