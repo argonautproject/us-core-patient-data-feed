@@ -133,12 +133,12 @@ The server would process this request based on its supported features and either
 
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. This guidance does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of how clients can create a Subscription to a Patient Data Feed.
 
-While formal topic publication is not yet standardized, interoperability can still be achieved around subscriptions using this guidance. Servers and clients can agree on the canonical URL, supported resources, and filters as described in this document.
+While formal topic publication is not yet standardized, interoperability can still be achieved around subscriptions using the guidance above. Servers and clients can agree on the canonical URL, supported resources, and filters as described in this document.
 
 Future work may include:
 1. Standardizing the structure and content of SubscriptionTopic resources
 2. Defining discovery mechanisms for available topics
-3. Formalizing the relationship between topics and subscriptions
+3. Formalizing the compositional nature of topics and triggers
 
 Until then, implementers should rely on this guidance and server-specific documentation for creating and managing subscriptions.
 
