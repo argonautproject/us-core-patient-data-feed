@@ -76,11 +76,6 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
       1. Supported notification triggers
    1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
-6. Security
-   1. Servers SHALL implement appropriate access control for managing subscriptions.
-   1. Servers SHALL manage authorization for delivering notifications.
-   1. Existing security practices and standards for FHIR implementations SHALL be applied to subscription management and notification delivery.
-
 7. Handling Filters for Multiple Resource Types
    1. Clients MAY include filters for multiple resource types in a single Subscription request.
    1. Servers SHOULD adjust the requested Subscription before persisting it, in order to communicate what filters will be honored.
