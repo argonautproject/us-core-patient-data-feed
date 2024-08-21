@@ -43,10 +43,10 @@ Table 1: Supported Resources and Standardized Filters for Patient Data Feed
 > **Maintenance of Table 1**
 > 
 > 1. Updates will be made any time new patient-focused resources are added to US Core.
-> 2. For each new resource, filters will be predefined based on standard search parameters to include:
+> 2. For each new resource, filters will be predefined whenever US Core's required search parameters include:
 >    - Patient context
->    - Any category-level codes
->    - Any instance-level codes
+>    - Category-level codes
+>    - Instance-level codes
 
 ## 4. Conformance
 
