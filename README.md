@@ -58,6 +58,8 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 2. Resource and Filter Support
    1. Servers SHALL support at least one resource type from the list in Table 1.
+   1. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources with a category filter.
+   1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
    1. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
    1. Servers MAY support the additional filters listed in Table 1 for each resource type.
    1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
