@@ -12,7 +12,7 @@ The canonical topic URL for the Patient Data Feed is:
 
 `http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
-Clients use this topic URL when creating Subscription resources to indicate they are requesting the Patient Data Feed.
+Clients use this topic URL when creating Subscriptions to indicate they are requesting the Patient Data Feed.
 
 ## 3. Supported Resources and Standardized Filters
 
