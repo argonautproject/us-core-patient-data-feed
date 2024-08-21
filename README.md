@@ -69,7 +69,7 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 4. Subscription Channel and Payload
    1. Servers SHALL support the `rest-hook` channel type for notification delivery.
-   1. Servers SHALL support the `id-only` payload type for notifications.
+   1. Servers SHALL support the `empty` and `id-only` payload types for notifications.
    1. Servers MAY support additional channel types and payload content types, and SHOULD clearly document any additional supported options.
 
 5. Error Handling and Documentation
