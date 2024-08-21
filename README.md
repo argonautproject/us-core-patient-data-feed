@@ -1,5 +1,3 @@
-Here's an updated version of the specification with the requested changes:
-
 # Patient Data Feed: Subscriptions
 
 ## 1. Overview
