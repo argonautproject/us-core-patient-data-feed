@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-The _Patient Data Feed_ is an optional feature for servers implementing US Core. Servers that implement a Patient Data Feed enable clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
+The _Patient Data Feed_ is an optional feature for servers implementing US Core. Servers can implement the Patient Data Feed to enable clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
 
 This specification defines a canonical topic URL, subscription filters, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
 
@@ -12,13 +12,13 @@ The canonical topic URL for the Patient Data Feed is:
 
 `http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed`
 
-Clients use this topic URL in their Subscription resources to indicate they are requesting the Patient Data Feed.
+Clients use this topic URL when creating Subscription resources to indicate they are requesting the Patient Data Feed.
 
 ## 3. Supported Resources and Standardized Filters
 
-Table 1 defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters.
+The table below defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
 
-Table 1: Supported Resources and Standardized Filters for Patient Data Feed
+Table 1: Resources and Filters for the Patient Data Feed
 
 | Resource | Filters |
 |----------|---------|
