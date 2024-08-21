@@ -1,8 +1,12 @@
+Here's an updated version of the specification with the requested changes:
+
 # Patient Data Feed: Subscriptions
 
 ## 1. Overview
 
-The _Patient Data Feed_ is an optional feature for servers implementing US Core. Servers can implement the Patient Data Feed to enable clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
+The Patient Data Feed is an optional feature for servers implementing US Core. It allows clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
+
+Servers can start simple. A minimal implementation could support just Encounters and Laboratory Observations. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
 
 This specification defines a canonical topic URL, subscription filters, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
 
@@ -16,7 +20,7 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Supported Resources and Standardized Filters
 
-The table below defines the resources and their associated standardized filters for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
+The table below defines the resources and their US Core search parameters for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
 
 Table 1: Resources and Filters for the Patient Data Feed
 
@@ -67,6 +71,7 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 3. Notification Triggers for Supported Resource Types
    1. Servers SHALL support notifications when a resource is first created and when its status changes.
+   1. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
    1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
 
 4. Subscription Channel and Payload
