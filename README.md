@@ -62,7 +62,7 @@ Table 1: Resources and Filters for the Patient Data Feed
    1. Servers SHALL support at least one resource type from the list in Table 1.
    2. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources. Specifically:
       - SHALL support `Observation?category=laboratory`
-      - SHOULD accept subscription requests for Observation resources that don't include the category filter. When accepting Observation subscriptions without a category filter, servers SHOULD append any implicit limits to the subscription. For example:
+      - SHALL accept subscription requests for Observation resources that don't include the category filter. When accepting Observation subscriptions without a category filter, servers SHOULD append any implicit limits to the subscription. For example:
         - If the server only supports laboratory observations, it would append `&category=laboratory` to the criteria
         - If the server supports multiple categories but not all, it would append the supported categories (e.g., `&category=laboratory,vital-signs`)
    3. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
