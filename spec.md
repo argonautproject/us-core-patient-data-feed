@@ -91,7 +91,7 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 7. Handling Multiple Resource Types and Filters
    1. Clients MAY include filters for multiple resource types in a single Subscription request.
-   2. If a patient filter is included, it MUST be applied consistently across all resource types in the subscription.
+   2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
    3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
    4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
    * _Examples_
