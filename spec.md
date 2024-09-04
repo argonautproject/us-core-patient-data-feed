@@ -91,15 +91,16 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 7. Handling Multiple Resource Types and Filters
    1. Clients MAY include filters for multiple resource types in a single Subscription request.
-   1. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
-   1. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
+   2. If a patient filter is included, it MUST be applied consistently across all resource types in the subscription.
+   3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
+   4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
    * _Examples_
        * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
        * A server might append a "category" filter clause to the requested Subscription's Observation filter to indicate that other categories will never trigger notifications.
 
 ## 5. Example Subscription Request
 
-Here's an example of how a client might request a subscription for laboratory observations and diagnostic reports:
+Here's an example of how a client might request a subscription for laboratory observations and diagnostic reports for a specific patient:
 
 ```json
 {
@@ -133,6 +134,9 @@ Here's an example of how a client might request a subscription for laboratory ob
     }
   }
 }
+
+Here's another example focusing specifically on Observations with category and patient filters:
+
 ```
 
 In this example, the client is requesting notifications for:
