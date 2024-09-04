@@ -134,9 +134,6 @@ Here's an example of how a client might request a subscription for laboratory ob
     }
   }
 }
-
-Here's another example focusing specifically on Observations with category and patient filters:
-
 ```
 
 In this example, the client is requesting notifications for:
