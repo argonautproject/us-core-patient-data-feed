@@ -147,5 +147,5 @@ When a notification is triggered in the US Core Patient Data Feed, the EHR inclu
 3. Potential for more targeted and efficient processing of Patient Data Feed notifications by clients.
 4. Improved insights into EHR workflows and data changes, facilitating future enhancements to FHIR and US Core standards.
 5. Opportunity for EHR vendors to showcase the depth and quality of their processes.
-6. Clients can choose to leverage or ignore this additional information based on their needs, maintaining compatibility with existing implementations.
+6. Clients can choose to leverage or ignore this additional information based on their needs, maintaining compatibility across diverse implementations.
 7. Use of standardized event codes (like HL7v2 event codes) improves interoperability and understanding across different systems.
