@@ -72,31 +72,39 @@ Table 1: Resources and Filters for the Patient Data Feed
    7. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 3. Notification Triggers for Supported Resource Types
-   1. Servers SHALL support notifications when a resource is first created and when its status changes.
-   1. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
-    1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
+   1. Servers SHALL support notifications when a resource is first created.
+   2. Servers SHALL support notifications for at least one type of status change for each supported resource type.
+   3. Servers SHOULD support notifications for all status changes of supported resource types.
+   4. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
+   5. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
+   6. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
+   7. Servers MAY label notifications with specific event codes to convey additional semantics about the triggering event. For more details on using event catalogs and labeling notifications with event codes, see the [Triggering Events](triggering-events.md) documentation.
+
+   > Note: It is recognized that EHR systems may have limitations in their ability to generate notifications for every status change or clinically meaningful event. The intent is to provide as comprehensive coverage as possible while allowing for system-specific constraints.
+
+   > Example: An EHR system might base its implementation on an existing event catalog, such as HL7v2 event codes or a custom event catalog. For instance, it could map all ADT (Admission, Discharge, Transfer) A* events from HL7v2 to notifications for the Encounter resource. This approach would likely capture most significant status changes and clinically relevant events, even if it doesn't guarantee coverage of every possible status change.
 
 4. Subscription Channel and Payload
-   1. Servers SHALL support the `rest-hook` channel type for notification delivery.
-   1. Servers SHALL support the `empty` and `id-only` payload types for notifications.
-   1. Servers MAY support additional channel types and payload types
+    1. Servers SHALL support the `rest-hook` channel type for notification delivery.
+    1. Servers SHALL support the `empty` and `id-only` payload types for notifications.
+    1. Servers MAY support additional channel types and payload types
 
 5. Error Handling and Documentation
-   1. Servers SHALL clearly document the following in their developer-facing documentation:
-      1. Supported resources and filters
-      1. Supported notification triggers
-      1. Supported channel types
-      1. Supported payload types 
-   1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+    1. Servers SHALL clearly document the following in their developer-facing documentation:
+        1. Supported resources and filters
+        1. Supported notification triggers
+        1. Supported channel types
+        1. Supported payload types 
+    1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
 7. Handling Multiple Resource Types and Filters
-   1. Clients MAY include filters for multiple resource types in a single Subscription request.
-   2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
-   3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
-   4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
-   * _Examples_
-       * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
-       * A server might append a "category" filter clause to the requested Subscription's Observation filter to indicate that other categories will never trigger notifications.
+    1. Clients MAY include filters for multiple resource types in a single Subscription request.
+    2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
+    3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
+    4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
+    * _Examples_
+        * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
+        * A server might append a "category" filter clause to the requested Subscription's Observation filter to indicate that other categories will never trigger notifications.
 
 ## 5. Example Subscription Request
 
