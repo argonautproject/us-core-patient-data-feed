@@ -73,8 +73,8 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 3. Notification Triggers for Supported Resource Types
    1. Servers SHALL support notifications when a resource is first created.
-   2. Servers SHALL support notifications for at least one type of status change for each supported resource type.
-   3. Servers SHOULD support notifications for all status changes of supported resource types.
+   2. Servers SHALL support notifications for at least one type of status change.
+   3. Servers SHOULD support notifications for all status changes.
    4. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
    5. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
    6. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
