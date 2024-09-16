@@ -68,7 +68,7 @@ Table 1: Resources and Filters for the Patient Data Feed
         - If the server only supports laboratory observations, it would append `&category=laboratory` to the criteria
         - If the server supports multiple categories but not all, it would append the supported categories (e.g., `&category=laboratory,vital-signs`)
    1. For each supported resource type, servers SHALL support the `patient=` filter (or `_id=` for Patient resources).
-   1. For each supported resource type, servers SHALL support the `triggering-event=` filter for any supported events
+   1. For each supported resource type, servers SHALL support the `triggering-event=` filter for any supported events.
    1. Servers MAY support the additional filters listed in Table 1 for each resource type.
    1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
    1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
@@ -76,11 +76,11 @@ Table 1: Resources and Filters for the Patient Data Feed
 3. Notification Triggers for Supported Resource Types
    1. Servers SHALL support notifications when a resource is first created.
    1. Servers SHALL support notifications when a resource is deleted.
-   1. Servers SHALL support notifications when a resource status enters a terminal state (e.g., `entered-in-error`).
-   1. Servers that support the US Core Encounter profile SHALL support triggering for the following [Core Events](triggering-events.md#2-core-events): `encounter-start`, `encounter-end`
-   1. Servers that support the US Core Laboratory Result Observation profile SHALL support triggering for the following [Core Events](triggering-events.md#2-core-events): `result-available`, `result-amended`
-   1. Servers SHALL support labeling notifications with any mandated event codes via [Triggering Events](triggering-events.md).
-   1. Servers MAY label notifications with additional event codes to convey additional semantics about the triggering event.
+   1. Servers SHALL support notifications when a resource status reaches a terminal value (e.g., `entered-in-error`).
+   1. Servers SHALL support [labeled notifications](triggering-events.md) for any mandated events. Specifically:
+     1. Servers that support the US Core Encounter profile SHALL support the following [Core Events](triggering-events.md#2-core-events): `encounter-start`, `encounter-end`.
+     1. Servers that support the US Core Laboratory Result Observation profile SHALL support the following [Core Events](triggering-events.md#2-core-events): `result-available`, `result-amended`.
+   1. Servers MAY send labeled notifications with additional event codes to convey additional semantics about the triggering event.
    1. Servers SHOULD support notifications for all status changes of supported resource types.
    1. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
    1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
