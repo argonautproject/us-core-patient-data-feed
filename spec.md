@@ -74,12 +74,11 @@ Table 1: Resources and Filters for the Patient Data Feed
 3. Notification Triggers for Supported Resource Types
    1. Servers SHALL support notifications when a resource is first created.
    2. Servers SHALL support notifications for when a resource changes to entered-in-error.
-   3. ~Servers SHALL support notifications for at least one type of status change.~
-   4. Servers SHOULD support notifications for all status changes.
-   5. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
-   6. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
-   7. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
-   8. Servers MAY label notifications with specific event codes to convey additional semantics about the triggering event. For more details on using event catalogs and labeling notifications with event codes, see the [Triggering Events](triggering-events.md) documentation.
+   3. Servers SHOULD support notifications for all status changes.
+   4. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
+   5. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
+   6. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
+   7. Servers MAY label notifications with specific event codes to convey additional semantics about the triggering event. For more details on using event catalogs and labeling notifications with event codes, see the [Triggering Events](triggering-events.md) documentation.
 
    > Note: It is recognized that EHR systems may have limitations in their ability to generate notifications for every status change or clinically meaningful event. The intent is to provide as comprehensive coverage as possible while allowing for system-specific constraints.
 
