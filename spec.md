@@ -16,37 +16,33 @@ The canonical topic URL for the Patient Data Feed is:
 
 Clients use this topic URL when creating Subscriptions to indicate they are requesting the Patient Data Feed.
 
-## 3. Supported Resources and Standardized Filters
+## 3. Resources, Filters, and Triggers
 
 The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
 
 Table 1: Resources, Filters, and Triggering Events for the Patient Data Feed
 
-| Resource | Filters | Triggering Events |
-|----------|---------|-------------------|
-| AllergyIntolerance | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| CarePlan | patient, category | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| CareTeam | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Condition | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Coverage | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| DiagnosticReport | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| DocumentReference | patient, category, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`note-signed`</span>, <span style="color: green;">`note-amended`</span> |
-| Encounter | patient, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`encounter-start`</span>, <span style="color: green;">`encounter-end`</span> |
-| Goal | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Immunization | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| MedicationDispense | patient, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| MedicationRequest | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Observation | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`result-available`</span>, <span style="color: green;">`result-amended`</span> |
-| Patient | _id | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Procedure | patient, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| QuestionnaireResponse | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| RelatedPerson | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| ServiceRequest | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-| Specimen | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
-
-**Legend:**
-- <span style="color: blue;">Blue</span>: Generic events applicable to all resources
-- <span style="color: green;">Green</span>: Specific events for particular resource types
+| Resource | Required Filters | Recommended Filters | Required Triggers (Generic) | Required Triggers (Resource-Specific) | Recommended Triggers |
+|----------|----------------------|------------------------|------------------------|----------------------------------|------------------------|
+| AllergyIntolerance | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| CarePlan | patient, category, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| CareTeam | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Condition | patient, category, trigger | code | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Coverage | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| DiagnosticReport | patient, category, trigger | code | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| DocumentReference | patient, category, trigger | type | `resource-create`, `resource-delete`, `resource-finalize` | `note-signed`, `note-amended` | `resource-update` |
+| Encounter | patient, trigger | type | `resource-create`, `resource-delete`, `resource-finalize` | `encounter-start`, `encounter-end` | `resource-update` |
+| Goal | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Immunization | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| MedicationDispense | patient, type, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| MedicationRequest | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Observation | patient, category, trigger | code | `resource-create`, `resource-delete`, `resource-finalize` | `result-available`, `result-amended` | `resource-update` |
+| Patient | _id, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Procedure | patient, trigger | code | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| QuestionnaireResponse | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| RelatedPerson | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| ServiceRequest | patient, category, trigger | code | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
+| Specimen | patient, trigger | | `resource-create`, `resource-delete`, `resource-finalize` | | `resource-update` |
 
 > **Maintenance of Table 1**
 > 
@@ -55,72 +51,108 @@ Table 1: Resources, Filters, and Triggering Events for the Patient Data Feed
 >    - Patient context
 >    - Category-level codes
 >    - Instance-level codes
-> 3. The generic triggering events (resource-create, resource-update, resource-status-change, resource-delete) will be included for all resources.
+> 3. The mandatory generic triggering events (resource-create, resource-delete, resource-finalize) will be included for all resources.
 > 4. Specific triggering events (e.g., encounter-start, result-available) will be added to relevant resources as they are defined.
 
-## 4. Conformance
+## 4. Triggering Events and Notifications
 
-1. General Requirements
-   1. Support for the Patient Data Feed is optional for servers implementing US Core.
-    1. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
+### 4.1 Required Triggering Events
 
-2. Resource and Filter Support
-   1. Servers SHALL support at least one resource type from the list in Table 1.
-   1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
-   1. Servers that support the US Core DocumentReference profile SHALL support subscriptions for DocumentReference resources.
-   1. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources. Specifically:
-      - SHALL support `Observation?category=laboratory` criteria
-      - SHALL accept subscription requests for Observation resources that don't include a category filter. When accepting Observation subscriptions without a category filter, servers SHOULD append any implicit limits to the subscription. For example:
-        - If the server only supports laboratory observations, it would append `&category=laboratory` to the criteria
-        - If the server supports multiple categories but not all, it would append the supported categories (e.g., `&category=laboratory,vital-signs`)
-   1. For each supported resource type, servers SHALL support the `patient=` filter (or `_id=` for Patient resources).
-   1. For each supported resource type, servers SHALL support the `triggering-event=` filter for any supported events.
-   1. Servers MAY support the additional filters listed in Table 1 for each resource type.
-   1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
-   1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+For all supported resources:
 
-3. Notifications when Resources Change
-   1. Servers SHALL support notifications when a resource is first created.
-   1. Servers SHALL support notifications when a resource status reaches a terminal value (e.g., `entered-in-error`) or the resource is deleted.
-   1. Servers SHALL support [labeled notifications](triggering-events.md) for the following mandated events:
-       - Servers that support the US Core Encounter profile SHALL support `encounter-start`, `encounter-end` [Core Events](triggering-events.md#2-core-events).
-       - Servers that support the US Core Laboratory Result Observation profile SHALL support `result-available`, `result-amended` [Core Events](triggering-events.md#2-core-events).
-       - Servers that support the US Core DocumentReference profile SHALL support `note-sign`, `note-amended` [Core Events](triggering-events.md#2-core-events).
-   1. Servers MAY send labeled notifications with additional event codes to convey additional semantics about the triggering event.
-   1. Servers SHOULD support notifications for all status changes of supported resource types.
-   1. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
-   1. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
-   1. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
+- Servers SHALL support:
+  - `resource-create`: A resource has been created
+  - `resource-delete`: A resource has been deleted
+  - `resource-finalize`: A resource has entered a terminal status
 
-   > Note: It is recognized that EHR systems may have limitations in their ability to generate notifications for every status change or clinically meaningful event. The intent is to provide as comprehensive coverage as possible while allowing for system-specific constraints.
+- Servers SHOULD support:
+  - `resource-update`: A resource has been updated (excluding status changes)
 
-   > Example: An EHR system might base its implementation on an existing event catalog, such as HL7v2 event codes or a custom event catalog. For instance, it could map all ADT (Admission, Discharge, Transfer) A* events from HL7v2 to notifications for the Encounter resource. This approach would likely capture most significant status changes and clinically relevant events, even if it doesn't guarantee coverage of every possible status change.
+For all supported profiles, Servers SHALL support the following resource-specific events:
 
-4. Subscription Channel and Payload
-    1. Servers SHALL support the `rest-hook` channel type for notification delivery.
-    1. Servers SHALL support the `empty` and `id-only` payload types for notifications.
-    1. Servers MAY support additional channel types and payload types
+- US Core DocumentReference:
+  - `note-signed`: A clinical note has been signed
+  - `note-amended`: An existing clinical note has been amended
+- US Core Encounter:
+  - `encounter-start`: An encounter has started or a patient has been admitted
+  - `encounter-end`: An encounter has ended or a patient has been discharged
+- US Core Laboratory Observation:
+  - `result-available`: A result has become available (e.g., finalized or preliminary)
+  - `result-amended`: An existing result has been amended (e.g., corrected, updated)
 
-5. Error Handling and Documentation
-    1. Servers SHALL clearly document the following in their developer-facing documentation:
-        - Supported resources and filters
-        - Supported notification triggers
-        - Supported channel types
-        - Supported payload types 
-    1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+The triggering event codes above are defined in the `http://hl7.org/fhir/us/core/CodeSystem/trigger` CodeSystem.
 
-7. Handling Multiple Resource Types and Filters
-    1. Clients MAY include filters for multiple resource types in a single Subscription request.
-    2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
-    3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters (Note: [search self link](https://www.hl7.org/fhir/search.html#selflink) uses a similar technique.)
-    4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
-    * _Examples_
-        * A server might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
-        * A server might append a "category" filter clause to the requested Subscription's Observation filter to indicate that other categories will never trigger notifications.
+### 4.2 Conveying Trigger Event Codes in Notifications
 
-## 5. Example Subscription Request
+When sending a notification, servers SHALL include triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. 
 
-Here's an example of how a client might request a subscription for laboratory observations and diagnostic reports for a specific patient:
+Example of a Parameters resource for a notification:
+
+```json
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "subscription",
+      "valueReference": {
+        "reference": "Subscription/example"
+      }
+    },
+    {
+      "name": "topic",
+      "valueCanonical": "http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed"
+    },
+    {
+      "name": "status",
+      "valueCode": "active"
+    },
+    {
+      "name": "type",
+      "valueCode": "event-notification"
+    },
+    {
+      "name": "events-since-subscription-start",
+      "valueString": "5"
+    },
+    {
+      "name": "notification-event",
+      "part": [
+        {
+          "name": "event-number",
+          "valueString": "5"
+        },
+        {
+          "name": "timestamp",
+          "valueInstant": "2023-09-05T14:30:00Z"
+        },
+        {
+          "name": "focus",
+          "valueReference": {
+            "reference": "Observation/lab-result-123"
+          }
+        },
+        {
+          "name": "trigger",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
+            "code": "result-available"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+## 5. Subscription Filters and Requests
+
+Servers SHALL allow clients to create Subscriptions according to http://hl7.org/fhir/uv/subscriptions-backport.
+
+### 5.1 Required Filter Parameters
+
+For each supported resource type, servers SHALL support the Required filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended filters.
+
+Example Subscription request, demonstrating filters based on patient, category, and trigger event.
 
 ```json
 {
@@ -132,7 +164,7 @@ Here's an example of how a client might request a subscription for laboratory ob
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Observation?category=laboratory&patient=123456"
+        "valueString": "Observation?category=laboratory&patient=123456&trigger=result-available,result-amended"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
@@ -156,15 +188,58 @@ Here's an example of how a client might request a subscription for laboratory ob
 }
 ```
 
-In this example, the client is requesting notifications for:
-1. Laboratory observations for a specific patient (123456)
-2. Laboratory diagnostic reports for the same patient
+### 5.3 Handling Multiple Resource Types and Filters
 
-The `criteria` element contains the canonical URL for the Patient Data Feed topic. The `_criteria` element uses extensions to specify the filters for each resource type. This approach allows for multiplexing different resource types within a single subscription.
+1. Clients MAY include multiple resource types in a single Subscription request.
+2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
+3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters.
+4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
 
-The server would process this request based on its supported features and either accept the subscription or reject it if it doesn't support the requested filters or resources.
+Examples:
+- A server that does not support CareTeam resources might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
+- A server that only supports notifications for laboratory observations might append a "category" filter clause to the requested Subscription's Observation criteria to indicate that other categories will never trigger notifications.
 
-## 6. Topic Modeling and Discovery (*future work*)
+## 6. Additional Conformance Requirements
+
+### 6.1 General
+
+1. Support for the Patient Data Feed is optional for servers implementing US Core.
+2. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
+
+### 6.2 Resource and Filter Support
+1. Servers SHALL support at least one resource type from the list in Table 1.
+2. Servers MAY support filters beyond those listed in Table 1 for each resource type.
+3. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+
+### 6.4 Subscription Handling
+1. Servers SHALL support the `rest-hook` channel type for notification delivery.
+2. Servers SHALL support the `empty` and `id-only` payload types for notifications.
+3. Servers MAY support additional channel types and payload types.
+
+### 6.5 Profile-Specific Requirements
+1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
+2. Servers that support the US Core DocumentReference profile SHALL support subscriptions for DocumentReference resources.
+3. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources, including:
+   - Support for `Observation?category=laboratory` criteria
+   - Acceptance of subscription requests for Observation resources without a category filter, with appropriate handling as described in section 5.2.
+
+### 6.6 Documentation and Error Handling
+1. Servers SHALL clearly document the following in their developer-facing documentation:
+   - Supported resources and filters
+   - Supported notification triggers
+   - Supported channel types
+   - Supported payload types 
+2. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+
+## 7. Benefits
+
+1. Detailed understanding of what triggered changes in patient data.
+2. More targeted and efficient processing of notifications by clients.
+3. Enhanced auditing and tracking capabilities.
+4. Improved interoperability through standardized event codes.
+5. Flexibility for servers to expose additional event details while maintaining a core set of standardized codes.
+
+## 8. Future Work
 
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, and filters as described in this document.
 
