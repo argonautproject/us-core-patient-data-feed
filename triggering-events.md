@@ -20,6 +20,8 @@ The following triggering events are defined for system
 | `encounter-end` | Encounter End | An encounter has ended or a patient has been discharged |
 | `result-available` | Result Available | A result has become available (e.g., finalized or preliminary) |
 | `result-amended` | Result Amended | An existing result has been amended (e.g., corrected, updated) |
+| `note-signed` | Note Signed | A clinical note has been signed |
+| `note-amended` | Note Amended | An existing clinical note has been amended |
 
 Servers are expected to map internal events to these core events. The mapping can be from underlying private events, HL7v2 events, or other representations. Servers have flexibility in interpreting how these events apply to their specific workflows, as long as they maintain the spirit and intent of the defined events.
 
