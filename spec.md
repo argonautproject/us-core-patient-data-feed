@@ -4,7 +4,7 @@
 
 The Patient Data Feed is an optional feature for servers implementing US Core. It allows clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
 
-Servers can start simple. A minimal implementation could support just Encounters and Laboratory Observations. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
+Servers can start simple. A minimal implementation could support just Encounters, Laboratory Observations. and Notes. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
 
 This specification defines a canonical topic URL, subscription filters, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
 
