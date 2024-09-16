@@ -37,7 +37,7 @@ Table 1: Resources and Filters for the Patient Data Feed
 | MedicationDispense | patient, type |
 | MedicationRequest | patient |
 | Observation | patient, category, code |
-| Patient | identifier |
+| Patient | _id |
 | Procedure | patient, code |
 | QuestionnaireResponse | patient |
 | RelatedPerson | patient |
@@ -60,25 +60,30 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 2. Resource and Filter Support
    1. Servers SHALL support at least one resource type from the list in Table 1.
-   2. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources. Specifically:
-      - SHALL support `Observation?category=laboratory`
+   1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources. Specifically:
+      - SHALL support `Encounter` criteria
+      - SHALL support [Core Events](triggering-events.md#2-core-events): `encounter-start`, `encounter-end`
+   1. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources. Specifically:
+      - SHALL support `Observation?category=laboratory` criteria
+      - SHALL support [Core Events](triggering-events.md#2-core-events): `result-available`, `result-amended`
       - SHALL accept subscription requests for Observation resources that don't include the category filter. When accepting Observation subscriptions without a category filter, servers SHOULD append any implicit limits to the subscription. For example:
         - If the server only supports laboratory observations, it would append `&category=laboratory` to the criteria
         - If the server supports multiple categories but not all, it would append the supported categories (e.g., `&category=laboratory,vital-signs`)
-   3. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
-   4. For each supported resource type, servers SHALL support the 'patient' filter (or 'identifier' for Patient resources).
-   5. Servers MAY support the additional filters listed in Table 1 for each resource type.
-   6. Servers MAY support filters beyond those listed in Table 1 for each resource type.
-   7. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+   1. For each supported resource type, servers SHALL support the 'patient' filter (or '_id' for Patient resources).
+   1. Servers MAY support the additional filters listed in Table 1 for each resource type.
+   1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
+   1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 3. Notification Triggers for Supported Resource Types
    1. Servers SHALL support notifications when a resource is first created.
-   2. Servers SHALL support notifications for at least one type of status change.
-   3. Servers SHOULD support notifications for all status changes.
-   4. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
-   5. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
-   6. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
-   7. Servers MAY label notifications with specific event codes to convey additional semantics about the triggering event. For more details on using event catalogs and labeling notifications with event codes, see the [Triggering Events](triggering-events.md) documentation.
+   2. Servers SHALL support notifications when a resource is deleted.
+   3. Servers SHALL support notifications when a resource status enters a terminal state (e.g., `entered-in-error`).
+   4. Servers SHALL support labeling notifications with any mandated event codes via [Triggering Events](triggering-events.md).
+   5. Servers MAY label notifications with additional event codes to convey additional semantics about the triggering event.
+   6. Servers SHOULD support notifications for all status changes of supported resource types.
+   7. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
+   8. Servers MAY support notifications for other types of changes (e.g., updates to specific fields).
+   9. Servers MAY generate notifications that do not represent actual changes to the resource (e.g., due to internal processing events).
 
    > Note: It is recognized that EHR systems may have limitations in their ability to generate notifications for every status change or clinically meaningful event. The intent is to provide as comprehensive coverage as possible while allowing for system-specific constraints.
 
@@ -160,3 +165,7 @@ Future work may include:
 1. Improving the structure and content of SubscriptionTopic resources
 2. Enhancing discovery mechanisms for available topics, triggers, and filters
 3. Formalizing the compositional nature of topics and triggers
+
+## 7. Triggering Events
+
+For detailed information on implementing and using triggering events, including the core triggering events and how to extend them, please refer to the [Triggering Events](triggering-events.md) documentation.
