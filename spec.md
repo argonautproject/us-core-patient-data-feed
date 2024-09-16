@@ -73,9 +73,9 @@ Table 1: Resources and Filters for the Patient Data Feed
    1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
    1. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
-3. Notification Triggers for Supported Resource Types
+3. Notifications when Resources Change
    1. Servers SHALL support notifications when a resource is first created.
-   1. Servers SHALL support notifications when a resource status reaches a terminal value (e.g., `entered-in-error`) or is deleted.
+   1. Servers SHALL support notifications when a resource status reaches a terminal value (e.g., `entered-in-error`) or the resource is deleted.
    1. Servers SHALL support [labeled notifications](triggering-events.md) for the following mandated events:
        - Servers that support the US Core Encounter profile SHALL support `encounter-start`, `encounter-end` [Core Events](triggering-events.md#2-core-events).
        - Servers that support the US Core Laboratory Result Observation profile SHALL support `result-available`, `result-amended` [Core Events](triggering-events.md#2-core-events).
