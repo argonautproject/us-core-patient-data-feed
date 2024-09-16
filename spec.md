@@ -60,8 +60,7 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 2. Resource and Filter Support
    1. Servers SHALL support at least one resource type from the list in Table 1.
-   1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources. Specifically:
-      - SHALL support `Encounter` criteria
+   1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
    1. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources. Specifically:
       - SHALL support `Observation?category=laboratory` criteria
       - SHALL accept subscription requests for Observation resources that don't include a category filter. When accepting Observation subscriptions without a category filter, servers SHOULD append any implicit limits to the subscription. For example:
@@ -77,9 +76,9 @@ Table 1: Resources and Filters for the Patient Data Feed
    1. Servers SHALL support notifications when a resource is first created.
    1. Servers SHALL support notifications when a resource is deleted.
    1. Servers SHALL support notifications when a resource status reaches a terminal value (e.g., `entered-in-error`).
-   1. Servers SHALL support [labeled notifications](triggering-events.md) for any mandated events. Specifically:
-     1. Servers that support the US Core Encounter profile SHALL support the following [Core Events](triggering-events.md#2-core-events): `encounter-start`, `encounter-end`.
-     1. Servers that support the US Core Laboratory Result Observation profile SHALL support the following [Core Events](triggering-events.md#2-core-events): `result-available`, `result-amended`.
+   1. Servers SHALL support [labeled notifications](triggering-events.md) for the following mandated events:
+       - Servers that support the US Core Encounter profile SHALL support `encounter-start`, `encounter-end` [Core Events](triggering-events.md#2-core-events).
+       - Servers that support the US Core Laboratory Result Observation profile SHALL support `result-available`, `result-amended` [Core Events](triggering-events.md#2-core-events).
    1. Servers MAY send labeled notifications with additional event codes to convey additional semantics about the triggering event.
    1. Servers SHOULD support notifications for all status changes of supported resource types.
    1. Servers SHOULD support notifications for any clinically meaningful changes to the resource.
@@ -97,10 +96,10 @@ Table 1: Resources and Filters for the Patient Data Feed
 
 5. Error Handling and Documentation
     1. Servers SHALL clearly document the following in their developer-facing documentation:
-        1. Supported resources and filters
-        1. Supported notification triggers
-        1. Supported channel types
-        1. Supported payload types 
+        - Supported resources and filters
+        - Supported notification triggers
+        - Supported channel types
+        - Supported payload types 
     1. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
 7. Handling Multiple Resource Types and Filters
@@ -166,7 +165,3 @@ Future work may include:
 1. Improving the structure and content of SubscriptionTopic resources
 2. Enhancing discovery mechanisms for available topics, triggers, and filters
 3. Formalizing the compositional nature of topics and triggers
-
-## 7. Triggering Events
-
-For detailed information on implementing and using triggering events, including the core triggering events and how to extend them, please refer to the [Triggering Events](triggering-events.md) documentation.

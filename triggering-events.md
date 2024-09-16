@@ -1,20 +1,18 @@
-# Labeling US Core Patient Data Feed with Triggering Event Codes
+# Assigning Event Codes to Subscription Notifications
 
 ## 1. Overview
 
 This document describes how servers can provide information about triggering events that affect patient data. 
 
-The primary goals of this extension are:
+The primary goals:
 1. Establish consistent labels for "Core Events"
 1. Enable clients to focus subscriptions based on triggering events
 1. Inform the future development of a more complete event catalog
 
 ## 2. Core Events
 
-The following triggering events are defined to promote consistency across servers:
-
-These following triggering events are defined in the US Core CodeSystem:
-`http://hl7.org/fhir/us/core/CodeSystem/triggering-event`
+The following triggering events are defined for system
+`http://hl7.org/fhir/us/core/CodeSystem/triggering-event`:
 
 | Code | Display | Definition |
 |------|---------|------------|
@@ -23,18 +21,16 @@ These following triggering events are defined in the US Core CodeSystem:
 | `result-available` | Result Available | A result has become available (e.g., finalized or preliminary) |
 | `result-amended` | Result Amended | An existing result has been amended (e.g., corrected, updated) |
 
-Servers should map their internal events to these core triggering events. The mapping can be from underlying private events, HL7v2 events, or other internal representations. Servers have flexibility in interpreting how these events apply to their specific workflows, as long as they maintain the spirit and intent of the defined events.
+Servers are expected to map internal events to these core events. The mapping can be from underlying private events, HL7v2 events, or other representations. Servers have flexibility in interpreting how these events apply to their specific workflows, as long as they maintain the spirit and intent of the defined events.
 
 ## 3. Additional Event Codes
 
 Servers MAY choose to support additional event codes beyond the core ones. These can be custom codes or drawn from existing standards such as HL7v2 event codes. Here's an example catalog that includes both custom codes and HL7v2 event codes:
 
-- `http://example.com/events|ENC_UPDATED`: Patient encounter details have been updated
 - `http://terminology.hl7.org/CodeSystem/v2-0003|A01`: ADT/ACK - Admit/visit notification
 - `http://terminology.hl7.org/CodeSystem/v2-0003|A03`: ADT/ACK - Discharge/end visit
-- `http://example.com/events|LAB_ORDERED`: Laboratory test has been ordered
-- `http://example.com/events|LAB_COLLECTED`: Laboratory sample has been collected
 - `http://terminology.hl7.org/CodeSystem/v2-0003|R01`: ORU/ACK - Unsolicited observation message
+- `http://example.com/events|ALLERGY_CONFIRMED`:An allergy has been confirmed
 
 When using HL7v2 event codes, Servers should use the fixed system `http://terminology.hl7.org/CodeSystem/v2-0003` and the code should indicate the event type (e.g., 'A01', 'R01').
 
