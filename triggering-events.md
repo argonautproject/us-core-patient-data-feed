@@ -16,12 +16,20 @@ The following triggering events are defined for system
 
 | Code | Display | Definition |
 |------|---------|------------|
-| `encounter-start` | Encounter Start | An encounter has started or a patient has been admitted |
-| `encounter-end` | Encounter End | An encounter has ended or a patient has been discharged |
-| `result-available` | Result Available | A result has become available (e.g., finalized or preliminary) |
-| `result-amended` | Result Amended | An existing result has been amended (e.g., corrected, updated) |
-| `note-signed` | Note Signed | A clinical note has been signed |
-| `note-amended` | Note Amended | An existing clinical note has been amended |
+| <span style="color: blue;">`resource-create`</span> | Resource Created | A resource has been created |
+| <span style="color: blue;">`resource-update`</span> | Resource Updated | A resource has been updated (excluding status changes) |
+| <span style="color: blue;">`resource-status-change`</span> | Resource Status Changed | A resource's status has changed |
+| <span style="color: blue;">`resource-delete`</span> | Resource Deleted | A resource has been deleted or its status set to 'entered-in-error' |
+| <span style="color: green;">`encounter-start`</span> | Encounter Start | An encounter has started or a patient has been admitted |
+| <span style="color: green;">`encounter-end`</span> | Encounter End | An encounter has ended or a patient has been discharged |
+| <span style="color: green;">`result-available`</span> | Result Available | A result has become available (e.g., finalized or preliminary) |
+| <span style="color: green;">`result-amended`</span> | Result Amended | An existing result has been amended (e.g., corrected, updated) |
+| <span style="color: green;">`note-signed`</span> | Note Signed | A clinical note has been signed |
+| <span style="color: green;">`note-amended`</span> | Note Amended | An existing clinical note has been amended |
+
+**Legend:**
+- <span style="color: blue;">Blue</span>: Generic events applicable to all resources
+- <span style="color: green;">Green</span>: Specific events for particular resource types
 
 Servers are expected to map internal events to these core events. The mapping can be from underlying private events, HL7v2 events, or other representations. Servers have flexibility in interpreting how these events apply to their specific workflows, as long as they maintain the spirit and intent of the defined events.
 

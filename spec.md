@@ -18,31 +18,35 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Supported Resources and Standardized Filters
 
-The table below defines the resources and their US Core search parameters for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
+The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
 
-Table 1: Resources and Filters for the Patient Data Feed
+Table 1: Resources, Filters, and Triggering Events for the Patient Data Feed
 
-| Resource | Filters |
-|----------|---------|
-| AllergyIntolerance | patient |
-| CarePlan | patient, category |
-| CareTeam | patient |
-| Condition | patient, category, code |
-| Coverage | patient |
-| DiagnosticReport | patient, category, code |
-| DocumentReference | patient, category, type |
-| Encounter | patient, type |
-| Goal | patient |
-| Immunization | patient |
-| MedicationDispense | patient, type |
-| MedicationRequest | patient |
-| Observation | patient, category, code |
-| Patient | _id |
-| Procedure | patient, code |
-| QuestionnaireResponse | patient |
-| RelatedPerson | patient |
-| ServiceRequest | patient, category, code |
-| Specimen | patient |
+| Resource | Filters | Triggering Events |
+|----------|---------|-------------------|
+| AllergyIntolerance | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| CarePlan | patient, category | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| CareTeam | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Condition | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Coverage | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| DiagnosticReport | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| DocumentReference | patient, category, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`note-signed`</span>, <span style="color: green;">`note-amended`</span> |
+| Encounter | patient, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`encounter-start`</span>, <span style="color: green;">`encounter-end`</span> |
+| Goal | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Immunization | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| MedicationDispense | patient, type | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| MedicationRequest | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Observation | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span>, <span style="color: green;">`result-available`</span>, <span style="color: green;">`result-amended`</span> |
+| Patient | _id | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Procedure | patient, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| QuestionnaireResponse | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| RelatedPerson | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| ServiceRequest | patient, category, code | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+| Specimen | patient | <span style="color: blue;">`resource-create`</span>, <span style="color: blue;">`resource-update`</span>, <span style="color: blue;">`resource-status-change`</span>, <span style="color: blue;">`resource-delete`</span> |
+
+**Legend:**
+- <span style="color: blue;">Blue</span>: Generic events applicable to all resources
+- <span style="color: green;">Green</span>: Specific events for particular resource types
 
 > **Maintenance of Table 1**
 > 
@@ -51,12 +55,14 @@ Table 1: Resources and Filters for the Patient Data Feed
 >    - Patient context
 >    - Category-level codes
 >    - Instance-level codes
+> 3. The generic triggering events (resource-create, resource-update, resource-status-change, resource-delete) will be included for all resources.
+> 4. Specific triggering events (e.g., encounter-start, result-available) will be added to relevant resources as they are defined.
 
 ## 4. Conformance
 
 1. General Requirements
    1. Support for the Patient Data Feed is optional for servers implementing US Core.
-   1. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
+    1. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
 
 2. Resource and Filter Support
    1. Servers SHALL support at least one resource type from the list in Table 1.
