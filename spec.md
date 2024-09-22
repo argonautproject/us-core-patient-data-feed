@@ -388,15 +388,14 @@ Examples:
 
 ## 7. Benefits
 
-1. Detailed understanding of what triggered changes in patient data.
-2. More targeted and efficient processing of notifications by clients.
-3. Enhanced auditing and tracking capabilities.
-4. Improved interoperability through standardized event codes.
-5. Flexibility for servers to expose additional event details while maintaining a core set of standardized codes.
+1. More targeted and efficient processing of notifications by clients.
+2. Detailed understanding of what triggered changes in patient data.
+3. Improved interoperability through standardized event codes.
+4. Flexibility for servers to expose additional event details while maintaining a core set of standardized codes.
 
 ## 8. Future Work
 
-The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the topic resource itself. Instead, it focuses on standardizing the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, and filters as described in this document.
+The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the SubscriptionTopic resource itself. Instead, it focuses on standardizing the functionality of the `patient-data-feed` topic and the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, filters, and triggers.
 
 Future work may include:
 1. Improving the structure and content of SubscriptionTopic resources
