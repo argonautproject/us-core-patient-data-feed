@@ -18,7 +18,7 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Resources, Filters, and Triggers
 
-The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. Servers may choose to support any subset of these resources and filters, as long as they meet the requirements described in _Conformance_.
+The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. **Servers may choose to support any subset of these resources and filters**, as long as they meet the requirements described in _Conformance_.
 
 <table>
   <thead>
