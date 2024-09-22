@@ -205,12 +205,14 @@ For all supported resources:
 
 - Servers SHALL support:
   - `resource-create`: A resource has been created
-  - `resource-update`: A resource has been updated (this is a superset of `resource-finalize`)
   - `resource-delete`: A resource has been deleted
   - `resource-finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
     - Entering a status such as "final" or "completed"
     - Reaching a point where the resource is considered clinically relevant and actionable
     - This state may still be subject to future updates, such as amendments or corrections
+
+- Servers SHOULD support:
+  - `resource-update`: A resource has been updated (this is a superset of `resource-finalize`)
 
 Note: A single change to a resource may trigger multiple events simultaneously (e.g., both `resource-update` and `resource-finalize`).
 
