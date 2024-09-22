@@ -4,7 +4,7 @@
 
 The Patient Data Feed is an optional feature for servers implementing US Core. It allows clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
 
-Servers can start simple. A minimal implementation could support just Encounters, Laboratory Observations. and Notes. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
+Servers can start simple. A minimal implementation might support just a few key US Core profiles to enable subscriptions for DiagnosticReport, DocumentReference, Encounter, and Observation. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
 
 This specification defines a canonical topic URL, subscription filters, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
 
@@ -27,7 +27,7 @@ The table below defines the resources, their US Core search parameters, and the 
       <th>Required Filters</th>
       <th>Recommended Filters</th>
       <th>Required Triggers (Generic)</th>
-      <th>Required Triggers (Resource-Specific)</th>
+      <th>Required Triggers (Specific)</th>
       <th>Recommended Triggers</th>
     </tr>
   </thead>
@@ -36,153 +36,153 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>AllergyIntolerance</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>CarePlan</td>
       <td>patient<br>category<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>CareTeam</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Condition</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Coverage</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>DiagnosticReport</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
-      <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
+      <td><nobr>available</nobr><nobr>amend</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>DocumentReference</td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
-      <td><nobr>note-sign</nobr><br><nobr>note-amend</nobr></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
+      <td><nobr>sign</nobr><br><nobr>amend</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Encounter</td>
       <td>patient<br>trigger</td>
       <td>type</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>encounter-start</nobr><br><nobr>encounter-end</nobr></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Goal</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Immunization</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>MedicationDispense</td>
       <td>patient<br>type<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>MedicationRequest</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Observation</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
-      <td><nobr>result-available</nobr><br><nobr>result-amend</nobr></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
+      <td><nobr>available</nobr><br><nobr>amend</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Patient</td>
       <td>_id<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Procedure</td>
       <td>patient<br>trigger</td>
       <td>code</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>QuestionnaireResponse</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>RelatedPerson</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>ServiceRequest</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Specimen</td>
       <td>patient<br>trigger</td>
       <td></td>
-      <td><nobr>resource-create</nobr><br><nobr>resource-delete</nobr><br><nobr>resource-finalize</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td></td>
-      <td><nobr>resource-update</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
   </tbody>
 </table>
@@ -194,8 +194,8 @@ The table below defines the resources, their US Core search parameters, and the 
 >    - Patient context
 >    - Category-level codes
 >    - Instance-level codes
-> 3. The mandatory generic triggering events (resource-create, resource-delete, resource-finalize) will be included for all resources.
-> 4. Specific triggering events (e.g., encounter-start, result-available) will be added to relevant resources as they are defined.
+> 3. The mandatory generic triggering events (create, delete, finalize) will be included for all resources.
+> 4. Specific triggering events (e.g., encounter-start, available) will be added to relevant resources as they are defined.
 
 ## 4. Triggering Events and Notifications
 
@@ -204,29 +204,33 @@ The table below defines the resources, their US Core search parameters, and the 
 For all supported resources:
 
 - Servers SHALL support:
-  - `resource-create`: A resource has been created
-  - `resource-delete`: A resource has been deleted
-  - `resource-finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
+  - `create`: A resource has been created
+  - `delete`: A resource has been deleted
+  - `finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
     - Entering a status such as "final" or "completed"
     - Reaching a point where the resource is considered clinically relevant and actionable
-    - This state may still be subject to future updates, such as amendments or corrections
+    - The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
 
 - Servers SHOULD support:
-  - `resource-update`: A resource has been updated (this is a superset of `resource-finalize`)
+  - `update`: A resource has been updated (this is a superset of `finalize`)
 
-Note: A single change to a resource may trigger multiple events simultaneously (e.g., both `resource-update` and `resource-finalize`).
+Note: A single change to a resource may trigger multiple events simultaneously (e.g., both `update` and `finalize`).
 
-Servers SHALL also support the following resource-specific events:
+Servers that support the following US Core profiles SHALL also support these associated events:
 
-- US Core DocumentReference:
-  - `note-sign`: A clinical note has been signed
-  - `note-amend`: An existing clinical note has been amended
-- US Core Encounter:
+- "US Core DocumentReference":
+  - `sign`: A clinical note has been signed
+  - `amend`: An existing clinical note has been amended
+- "US Core Encounter":
   - `encounter-start`: An encounter has started or a patient has been admitted
   - `encounter-end`: An encounter has ended or a patient has been discharged
-- US Core Laboratory Observation:
-  - `result-available`: A result has become available (e.g., preliminary or finalized)
-  - `result-amend`: An existing result has been amended (e.g., corrected, updated)
+- "US Core Laboratory Observation":
+  - `available`: A result has become available (e.g., preliminary or finalized)
+  - `amend`: An existing result has been amended (e.g., corrected or updated)
+
+- "US Core DiagnosticReport for Laboratory Results Reporting":
+  - `available`: A result has become available (e.g., preliminary or finalized)
+  - `amend`: An existing result has been amended (e.g., corrected or updated)
 
 Note: These events can be detected by evaluating resource state, even in systems without native event-based processing. Servers are responsible for determining how to identify these events based on their specific implementation.
 
@@ -285,14 +289,14 @@ Example of a Parameters resource for a notification with multiple triggers:
           "name": "trigger",
           "valueCoding": {
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "resource-finalize"
+            "code": "finalize"
           }
         },
         {
           "name": "trigger",
           "valueCoding": {
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "result-amend"
+            "code": "amend"
           }
         }
       ]
@@ -322,11 +326,15 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Observation?category=laboratory&patient=123456&trigger=result-available,result-amend"
+        "valueString": "Encounter?patient=123&trigger=encounter-end"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "DiagnosticReport?category=LAB&patient=123456"
+        "valueString": "Observation?patient=123&category=laboratory"
+      },
+      {
+        "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+        "valueString": "DiagnosticReport?patient=123&category=LAB"
       }
     ]
   },
