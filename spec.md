@@ -206,10 +206,13 @@ For all supported resources:
 - Servers SHALL support:
   - `resource-create`: A resource has been created
   - `resource-delete`: A resource has been deleted
-  - `resource-finalize`: A resource has entered a terminal status
+  - `resource-finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
+    - Entering a status such as "final" or "completed"
+    - Reaching a point where the resource is considered clinically relevant and actionable
+    - This state may still be subject to future updates, such as amendments, corrections, or status changes to "entered-in-error"
 
 - Servers SHOULD support:
-  - `resource-update`: A resource has been updated (excluding status changes)
+  - `resource-update`: A resource has been updated (excluding status changes that would trigger `resource-finalize`)
 
 For all supported profiles, Servers SHALL support the following resource-specific events:
 
