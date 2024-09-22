@@ -306,6 +306,7 @@ Servers SHALL allow clients to create Subscriptions according to http://hl7.org/
 
 For each supported resource type, servers SHALL support the Required filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended filters.
 
+### 5.2 Exapmle Subscription Request
 Example Subscription request, demonstrating filters based on patient, category, and trigger event.
 
 ```json
