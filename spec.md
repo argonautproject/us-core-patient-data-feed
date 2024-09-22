@@ -290,7 +290,7 @@ Example of a Parameters resource for a notification with multiple triggers:
           "name": "trigger",
           "valueCoding": {
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "note-sign"
+            "code": "result-amend"
           }
         }
       ]
