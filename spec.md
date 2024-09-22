@@ -205,16 +205,16 @@ For all supported resources:
 
 - Servers SHALL support:
   - `resource-create`: A resource has been created
+  - `resource-update`: A resource has been updated (this is a superset of `resource-finalize`)
   - `resource-delete`: A resource has been deleted
   - `resource-finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
     - Entering a status such as "final" or "completed"
     - Reaching a point where the resource is considered clinically relevant and actionable
-    - This state may still be subject to future updates, such as amendments, corrections, or status changes to "entered-in-error"
+    - This state may still be subject to future updates, such as amendments or corrections
 
-- Servers SHOULD support:
-  - `resource-update`: A resource has been updated (excluding status changes that would trigger `resource-finalize`)
+Note: A single change to a resource may trigger multiple events simultaneously (e.g., both `resource-update` and `resource-finalize`).
 
-For all supported profiles, Servers SHALL support the following resource-specific events:
+Servers SHALL also support the following resource-specific events:
 
 - US Core DocumentReference:
   - `note-sign`: A clinical note has been signed
@@ -226,13 +226,15 @@ For all supported profiles, Servers SHALL support the following resource-specifi
   - `result-available`: A result has become available (e.g., preliminary or finalized)
   - `result-amend`: An existing result has been amended (e.g., corrected, updated)
 
+Note: These events can be detected by evaluating resource state, even in systems without native event-based processing. Servers are responsible for determining how to identify these events based on their specific implementation.
+
 The triggering event codes above are defined in the `http://hl7.org/fhir/us/core/CodeSystem/trigger` CodeSystem.
 
 ### 4.2 Conveying Trigger Event Codes in Notifications
 
-When sending a notification, servers SHALL include triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. 
+When sending a notification, servers SHALL include all applicable triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
 
-Example of a Parameters resource for a notification:
+Example of a Parameters resource for a notification with multiple triggers:
 
 ```json
 {
@@ -279,10 +281,16 @@ Example of a Parameters resource for a notification:
         },
         {
           "name": "trigger",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "result-available"
-          }
+          "valueCoding": [
+            {
+              "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
+              "code": "resource-finalize"
+            },
+            {
+              "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
+              "code": "note-sign"
+            }
+          ]
         }
       ]
     }
