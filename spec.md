@@ -265,13 +265,6 @@ Example of a Parameters resource for a notification with multiple triggers:
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
             "code": "finalize"
           }
-        },
-        {
-          "name": "trigger",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "amend"
-          }
         }
       ]
     }
@@ -300,7 +293,7 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=encounter-end"
+        "valueString": "Encounter?patient=123&trigger=finalize"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
