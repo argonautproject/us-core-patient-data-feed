@@ -188,7 +188,7 @@ The table below defines the resources, their US Core search parameters, and the 
    - Reaching a point where the resource is considered clinically relevant and actionable
    - The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
 
-#### Events for Key Profiles
+#### Understanding Events for Key Profiles
 
 - **US Core DocumentReference**:
   - `draft`: A clinical note has draft content available
@@ -196,15 +196,15 @@ The table below defines the resources, their US Core search parameters, and the 
 
 - **US Core Encounter**:
   - `active`: An encounter has started or a patient has been admitted.
-  - `finalize`: An encounter has ended or a patient has been discharged.
+  - `finalize`: An encounter has ended, a patient has been discharged, or the encounter has otherwise entered a final status.
 
 - **US Core Laboratory Observation**:
   - `draft`: A preliminary result has become available.
-  - `finalize`: A final result, amended result, or corrected result has become available.
+  - `finalize`: A final result, amended result, or corrected result has become available, or the observation has otherwise entered a final status.
 
 - **US Core DiagnosticReport for Laboratory Results Reporting**:
   - `draft`: A preliminary result has become available.
-  - `finalize`: A final result, amended result, or corrected result has become available.
+  - `finalize`: A final result, amended result, or corrected result has become available, or the diagnostic report has otherwise entered a final status.
 
 ### 4.2 Conformance Requirements for Triggering Events
 
