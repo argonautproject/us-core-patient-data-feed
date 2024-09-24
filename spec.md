@@ -284,6 +284,7 @@ Servers SHALL allow clients to create Subscriptions according to http://hl7.org/
 For each supported resource type, servers SHALL support the Required filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended filters.
 
 ### 5.2 Exapmle Subscription Request
+
 Example Subscription request, demonstrating filters based on patient, category, and trigger event.
 
 ```json
@@ -343,21 +344,21 @@ Examples:
 2. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
 
 ### 6.2 Resource and Filter Support
+
 1. Servers SHALL support at least one resource type from the list in Table 1.
-2. Servers MAY support filters beyond those listed in Table 1 for each resource type.
-3. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+2. Servers supporting the following profiles SHALL support subscriptions for their resources:
+   - US Core DocumentReference Profile 
+   - US Core Encounter Profile
+   - US Core DiagnosticReport Profile for Laboratory Results Reporting
+   - US Core Laboratory Result Observation Profile
+3. Servers MAY support filters beyond those listed in Table 1 for each resource type.
+4. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 ### 6.4 Subscription Handling
 1. Servers SHALL support the `rest-hook` channel type for notification delivery.
 2. Servers SHALL support the `empty` and `id-only` payload types for notifications.
 3. Servers MAY support additional channel types and payload types.
 
-### 6.5 Profile-Specific Requirements
-1. Servers that support the US Core Encounter profile SHALL support subscriptions for Encounter resources.
-2. Servers that support the US Core DocumentReference profile SHALL support subscriptions for DocumentReference resources.
-3. Servers that support the US Core Laboratory Result Observation profile SHALL support subscriptions for Observation resources, including:
-   - Support for `Observation?category=laboratory` criteria
-   - Acceptance of subscription requests for Observation resources without a category filter, with appropriate handling as described in section 5.2.
 
 ### 6.6 Documentation and Error Handling
 1. Servers SHALL clearly document the following in their developer-facing documentation:
