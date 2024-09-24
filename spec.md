@@ -24,145 +24,145 @@ The table below defines the resources, their US Core search parameters, and the 
   <thead>
     <tr>
       <th>Resource</th>
-      <th>Required-Support Filters</th>
-      <th>Recommended-Support Filters</th>
       <th>Required-Support Triggers</th>
       <th>Recommended-Support Triggers</th>
+      <th>Required-Support Filters</th>
+      <th>Recommended-Support Filters</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>AllergyIntolerance</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>CarePlan</td>
-      <td>patient<br>category<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>CareTeam</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>Condition</td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td>code</td>
     </tr>
     <tr>
       <td>Coverage</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>DiagnosticReport</td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td>code</td>
     </tr>
     <tr>
       <td>DocumentReference</td>
-      <td>patient<br>category<br>trigger</td>
-      <td>type</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td>type</td>
     </tr>
     <tr>
       <td>Encounter</td>
-      <td>patient<br>trigger</td>
-      <td>type</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>active</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td>type</td>
     </tr>
     <tr>
       <td>Goal</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>Immunization</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>MedicationDispense</td>
-      <td>patient<br>type<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>type<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>MedicationRequest</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>Observation</td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td>code</td>
     </tr>
     <tr>
       <td>Patient</td>
-      <td>_id<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>_id<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>Procedure</td>
-      <td>patient<br>trigger</td>
-      <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr><br><nobr>active</nobr></td>
+      <td>patient<br>trigger</td>
+      <td>code</td>
     </tr>
     <tr>
       <td>QuestionnaireResponse</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>RelatedPerson</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
     <tr>
       <td>ServiceRequest</td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>category<br>trigger</td>
+      <td>code</td>
     </tr>
     <tr>
       <td>Specimen</td>
-      <td>patient<br>trigger</td>
-      <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
+      <td>patient<br>trigger</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -212,8 +212,6 @@ The table below defines the resources, their US Core search parameters, and the 
 ### 4.2 Conformance Requirements for Triggering Events
 
 For each supported resource type, servers SHALL support the Required-Support Triggers as specified in Table 1, and SHOULD support the Recommended-Support Triggers.
-
-### 4.3 Conveying Trigger Event Codes in Notifications
 
 When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
 
@@ -279,8 +277,6 @@ Example of a Parameters resource for a notification with multiple triggers:
 
 Servers SHALL allow clients to create Subscriptions according to http://hl7.org/fhir/uv/subscriptions-backport.
 
-### 5.1 Required Filter Parameters
-
 For each supported resource type, servers SHALL support the Required-Support Filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended-Support Filters.
 
 ### 5.2 Exapmle Subscription Request
@@ -327,14 +323,14 @@ Example Subscription request, demonstrating filters based on patient, category, 
 
 ### 5.3 Handling Multiple Resource Types and Filters
 
-1. Clients MAY include multiple resource types in a single Subscription request.
-2. If a patient filter is included, it SHALL be applied consistently across all resource types in the subscription.
+1. Clients MAY include multiple resource types by supplying multiple filter-criteria extensions in a Subscription request; Servers SHALL process all supplied filter-criteria extensions.
+2. Clients SHALL NOT include `patient=` filters for different patients in the same Subscription.
 3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters.
 4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
 
 Examples:
-- A server that does not support CareTeam resources might remove "CareTeam" from the requested Subscription to indicate that CareTeam resources will never trigger notifications.
-- A server that only supports notifications for laboratory observations might append a "category" filter clause to the requested Subscription's Observation criteria to indicate that other categories will never trigger notifications.
+- A server that does not support CareTeam resources might remove the client's `CareTeam` filter-criteria extension to indicate that CareTeam resources will never trigger notifications.
+- A server that only supports notifications for laboratory observations might adjust the client's `Observation` filter-criteria extension to `Observation?category=laboratory` to indicate that other categories will never trigger notifications.
 
 ## 6. Additional Conformance Requirements
 
@@ -343,7 +339,7 @@ Examples:
 1. Support for the Patient Data Feed is optional for servers implementing US Core.
 2. Servers that choose to support the Patient Data Feed SHALL implement the following requirements.
 
-### 6.2 Resource and Filter Support
+### 6.2 Resource Support
 
 1. Servers SHALL support at least one resource type from the list in Table 1.
 2. Servers supporting the following profiles SHALL support subscriptions for their resources:
@@ -351,29 +347,40 @@ Examples:
    - US Core Encounter Profile
    - US Core DiagnosticReport Profile for Laboratory Results Reporting
    - US Core Laboratory Result Observation Profile
-3. Servers SHALL support subscriptions that provide with zero or more supported filters.
-4. Servers MAY support filters beyond those listed in Table 1 for each resource type.
-5. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
-### 6.4 Subscription Handling
+### 6.3 Filter Support
+
+1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
+2. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+3. Servers SHALL support Subscriptions with zero or more supported filters in a filter-criteria extension.
+
+### 6.4 Delivery (Channel and Payload Support)
 1. Servers SHALL support the `rest-hook` channel type for notification delivery.
 2. Servers SHALL support the `empty` and `id-only` payload types for notifications.
 3. Servers MAY support additional channel types and payload types.
 
 ### 6.6 Documentation and Error Handling
 1. Servers SHALL clearly document the following in their developer-facing documentation:
-   - Supported resources and filters
+   - Supported resources, filters, and triggers
    - Supported notification triggers
    - Supported channel types
    - Supported payload types 
 2. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
-## 7. Benefits
+## 7. Additional Considerations
 
-1. More targeted and efficient processing of notifications by clients.
-2. Detailed understanding of what triggered changes in patient data.
-3. Improved interoperability through standardized event codes.
-4. Flexibility for servers to expose additional event details while maintaining a core set of standardized codes.
+### 7.1 Performance Optimization
+
+Servers implementing the Patient Data Feed should consider the following performance optimizations:
+
+1. Event Coalescing: When multiple changes occur to a single resource in rapid succession, servers can coalesce these changes into a single event notification that includes all applicable trigger codes to represent the nature of the changes.
+
+2. Event Batching: For subscriptions with high update frequencies, servers can implement batching strategies to group multiple events into a single notification bundle.
+
+
+### 7.2 Security Considerations
+
+While detailed security implementations are beyond the scope of this specification, servers must maintain the same level of access control and security for subscription notifications as they do for direct REST API access. Key considerations include authentication, authorization, encryption in transit (https), and audit logging.  Implementers are encouraged to refer to the FHIR Security and Privacy Module (http://hl7.org/fhir/security.html) and relevant security best practices for additional guidance.
 
 ## 8. Future Work
 
@@ -383,3 +390,4 @@ Future work may include:
 1. Improving the structure and content of SubscriptionTopic resources
 2. Enhancing discovery mechanisms for available topics, triggers, and filters
 3. Formalizing the compositional nature of topics and triggers
+
