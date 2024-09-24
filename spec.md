@@ -180,13 +180,15 @@ The table below defines the resources, their US Core search parameters, and the 
 
 #### Definitions of Generic Triggers
 - `create`: A resource has been created
+- `update`: A resource has been updated.
 - `delete`: A resource has been deleted
-- `draft`: A resource is in a preliminary state and not yet finalized. This is typically used for resources that are still being worked on and are not yet ready for clinical use.
-- `active`: A resource is currently in use or being acted upon. This is typically used for resources that are in the process of being executed or are actively being managed.
-- `finalize`: A resource has reached a state that is considered complete or ready for use.
+- `finalize`: A resource has reached a state that is considered complete or ready for use, sucy as:
    - Entering a status such as "final", "completed", "amended", or "entered-in-error"
    - Reaching a point where the resource is considered clinically relevant and actionable
-   - The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
+   - Note: The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
+- `draft`: A resource is in a preliminary state with partial content.
+- `active`: A resource is currently in use or being acted upon.
+
 
 #### Understanding Events for Key Profiles
 
