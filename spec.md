@@ -179,7 +179,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 ## 4. Triggering Events and Notifications
 
-#### Definitions of Generic Triggers
+### 4.1 Definitions of Triggers
 - `create`: A resource has been created
 - `update`: A resource has been updated.
 - `delete`: A resource has been deleted
