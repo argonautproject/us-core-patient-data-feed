@@ -185,7 +185,7 @@ The table below defines the resources, their US Core search parameters, and the 
 - `delete`: A resource has been deleted
 - `draft`: A resource is in a preliminary state with partial content.
 - `active`: A resource is currently in use or being acted upon.
-- `finalize`: A resource has reached a state that is considered complete or ready for use, sucy as:
+- `finalize`: A resource has reached a state that is considered complete or ready for use, such as:
    - Entering a status such as "final", "completed", "amended", or "entered-in-error"
    - Reaching a point where the resource is considered clinically relevant and actionable
    - Note: The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
