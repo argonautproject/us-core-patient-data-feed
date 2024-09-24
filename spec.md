@@ -26,8 +26,7 @@ The table below defines the resources, their US Core search parameters, and the 
       <th>Resource</th>
       <th>Required Filters</th>
       <th>Recommended Filters</th>
-      <th>Required Triggers (Generic)</th>
-      <th>Required Triggers (Specific)</th>
+      <th>Required Triggers</th>
       <th>Recommended Triggers</th>
     </tr>
   </thead>
@@ -37,7 +36,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -45,7 +43,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>category<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -53,7 +50,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -61,7 +57,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -69,31 +64,26 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>DiagnosticReport</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>available</nobr><nobr>amend</nobr></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
     </tr>
     <tr>
       <td>DocumentReference</td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>sign</nobr><br><nobr>amend</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Encounter</td>
       <td>patient<br>trigger</td>
       <td>type</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>encounter-start</nobr><br><nobr>encounter-end</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>active</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -101,7 +91,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -109,7 +98,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -117,7 +105,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>type<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -125,15 +112,13 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>Observation</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>available</nobr><br><nobr>amend</nobr></td>
+      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -141,7 +126,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>_id<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -149,15 +133,13 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>update</nobr><br><nobr>active</nobr></td>
     </tr>
     <tr>
       <td>QuestionnaireResponse</td>
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -165,7 +147,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -173,7 +154,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
     <tr>
@@ -181,7 +161,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>trigger</td>
       <td></td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td></td>
       <td><nobr>update</nobr></td>
     </tr>
   </tbody>
@@ -195,50 +174,47 @@ The table below defines the resources, their US Core search parameters, and the 
 >    - Category-level codes
 >    - Instance-level codes
 > 3. The mandatory generic triggering events (create, delete, finalize) will be included for all resources.
-> 4. Specific triggering events (e.g., encounter-start, available) will be added to relevant resources as they are defined.
+> 4. Specific triggering events (e.g., draft, active) will be added to relevant resources as they are defined.
 
 ## 4. Triggering Events and Notifications
 
-### 4.1 Required Triggering Events
+#### Definitions of Generic Triggers
+- `create`: A resource has been created
+- `update`: A resource has been updated.
+- `delete`: A resource has been deleted
+- `finalize`: A resource has reached a state that is considered complete or ready for use, sucy as:
+   - Entering a status such as "final", "completed", "amended", or "entered-in-error"
+   - Reaching a point where the resource is considered clinically relevant and actionable
+   - Note: The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
+- `draft`: A resource is in a preliminary state with partial content.
+- `active`: A resource is currently in use or being acted upon.
 
-For all supported resources:
 
-- Servers SHALL support:
-  - `create`: A resource has been created
-  - `delete`: A resource has been deleted
-  - `finalize`: A resource has reached a state that is considered complete or ready for use. This includes, but is not limited to:
-    - Entering a status such as "final" or "completed"
-    - Reaching a point where the resource is considered clinically relevant and actionable
-    - The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
+#### Understanding Events for Key Profiles
 
-- Servers SHOULD support:
-  - `update`: A resource has been updated (this is a superset of `finalize`)
+- **US Core DocumentReference**:
+  - `draft`: A clinical note has draft content available
+  - `finalize`: A clinical note has been signed, amended, or otherwise entered a final state.
 
-Note: A single change to a resource may trigger multiple events simultaneously (e.g., both `update` and `finalize`).
+- **US Core Encounter**:
+  - `active`: An encounter has started or a patient has been admitted.
+  - `finalize`: An encounter has ended, a patient has been discharged, or the encounter has otherwise entered a final status.
 
-Servers that support the following US Core profiles SHALL also support these associated events:
+- **US Core Laboratory Observation**:
+  - `draft`: A preliminary result has become available.
+  - `finalize`: A final result, amended result, or corrected result has become available, or the observation has otherwise entered a final status.
 
-- "US Core DocumentReference":
-  - `sign`: A clinical note has been signed
-  - `amend`: An existing clinical note has been amended
-- "US Core Encounter":
-  - `encounter-start`: An encounter has started or a patient has been admitted
-  - `encounter-end`: An encounter has ended or a patient has been discharged
-- "US Core Laboratory Observation":
-  - `available`: A result has become available (e.g., preliminary or finalized)
-  - `amend`: An existing result has been amended (e.g., corrected or updated)
+- **US Core DiagnosticReport for Laboratory Results Reporting**:
+  - `draft`: A preliminary result has become available.
+  - `finalize`: A final result, amended result, or corrected result has become available, or the diagnostic report has otherwise entered a final status.
 
-- "US Core DiagnosticReport for Laboratory Results Reporting":
-  - `available`: A result has become available (e.g., preliminary or finalized)
-  - `amend`: An existing result has been amended (e.g., corrected or updated)
+### 4.2 Conformance Requirements for Triggering Events
 
-Note: These events can be detected by evaluating resource state, even in systems without native event-based processing. Servers are responsible for determining how to identify these events based on their specific implementation.
+For each supported resource type, servers SHALL support the required triggers as specified in Table 1, and SHOULD support the recommended triggers.
 
-The triggering event codes above are defined in the `http://hl7.org/fhir/us/core/CodeSystem/trigger` CodeSystem.
+### 4.3 Conveying Trigger Event Codes in Notifications
 
-### 4.2 Conveying Trigger Event Codes in Notifications
-
-When sending a notification, servers SHALL include all applicable triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
+When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
 
 Example of a Parameters resource for a notification with multiple triggers:
 
@@ -291,13 +267,6 @@ Example of a Parameters resource for a notification with multiple triggers:
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
             "code": "finalize"
           }
-        },
-        {
-          "name": "trigger",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "amend"
-          }
         }
       ]
     }
@@ -326,7 +295,7 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=encounter-end"
+        "valueString": "Encounter?patient=123&trigger=finalize"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
