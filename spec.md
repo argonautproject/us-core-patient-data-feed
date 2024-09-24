@@ -6,7 +6,7 @@ The Patient Data Feed is an optional feature for servers implementing US Core. I
 
 Servers can start simple. A minimal implementation might support just a few key US Core profiles to enable subscriptions for DiagnosticReport, DocumentReference, Encounter, and Observation. From there, servers can expand to cover more resources as needed. This flexibility lets implementers balance effort and usefulness.
 
-This specification defines a canonical topic URL, subscription filters, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
+This specification defines a canonical topic URL, subscription filters, triggers, and conformance requirements for the Patient Data Feed. It builds on FHIR R4 definitions from http://hl7.org/fhir/uv/subscriptions-backport.
 
 ## 2. Canonical Topic URL
 
