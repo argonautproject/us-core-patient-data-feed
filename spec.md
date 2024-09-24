@@ -24,10 +24,10 @@ The table below defines the resources, their US Core search parameters, and the 
   <thead>
     <tr>
       <th>Resource</th>
-      <th>Required Filters</th>
-      <th>Recommended Filters</th>
-      <th>Required Triggers</th>
-      <th>Recommended Triggers</th>
+      <th>Required-Support Filters</th>
+      <th>Recommended-Support Filters</th>
+      <th>Required-Support Triggers</th>
+      <th>Recommended-Support Triggers</th>
     </tr>
   </thead>
   <tbody>
@@ -211,7 +211,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 ### 4.2 Conformance Requirements for Triggering Events
 
-For each supported resource type, servers SHALL support the required triggers as specified in Table 1, and SHOULD support the recommended triggers.
+For each supported resource type, servers SHALL support the Required-Support Triggers as specified in Table 1, and SHOULD support the Recommended-Support Triggers.
 
 ### 4.3 Conveying Trigger Event Codes in Notifications
 
@@ -281,7 +281,7 @@ Servers SHALL allow clients to create Subscriptions according to http://hl7.org/
 
 ### 5.1 Required Filter Parameters
 
-For each supported resource type, servers SHALL support the Required filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended filters.
+For each supported resource type, servers SHALL support the Required-Support Filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended-Support Filters.
 
 ### 5.2 Exapmle Subscription Request
 
@@ -351,14 +351,14 @@ Examples:
    - US Core Encounter Profile
    - US Core DiagnosticReport Profile for Laboratory Results Reporting
    - US Core Laboratory Result Observation Profile
-3. Servers MAY support filters beyond those listed in Table 1 for each resource type.
-4. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
+3. Servers SHALL support subscriptions that provide with zero or more supported filters.
+4. Servers MAY support filters beyond those listed in Table 1 for each resource type.
+5. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
 
 ### 6.4 Subscription Handling
 1. Servers SHALL support the `rest-hook` channel type for notification delivery.
 2. Servers SHALL support the `empty` and `id-only` payload types for notifications.
 3. Servers MAY support additional channel types and payload types.
-
 
 ### 6.6 Documentation and Error Handling
 1. Servers SHALL clearly document the following in their developer-facing documentation:
