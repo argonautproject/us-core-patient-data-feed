@@ -195,7 +195,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 - **US Core DocumentReference**:
   - `draft`: A clinical note has draft content available
-  - `finalize`: A clinical note has been signed, amended, or otherwise entered a final state.
+  - `finalize`: A clinical note has been signed, amended, or otherwise entered a final status.
 
 - **US Core Encounter**:
   - `active`: An encounter has started or a patient has been admitted.
