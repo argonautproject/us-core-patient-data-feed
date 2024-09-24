@@ -71,6 +71,7 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
       <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
+      <td><nobr>update</nobr></td>
     </tr>
     <tr>
       <td>DocumentReference</td>
