@@ -275,9 +275,11 @@ Example of a Parameters resource for a notification with multiple triggers:
 
 ## 5. Subscription Filters and Requests
 
-Servers SHALL allow clients to create Subscriptions according to http://hl7.org/fhir/uv/subscriptions-backport.
+Servers SHALL allow clients to create Subscriptions according to http://hl7.org/fhir/uv/subscriptions-backport. This includes "filter-criteria" extensions for each resource where notifications are requested.
 
-For each supported resource type, servers SHALL support the Required-Support Filters as specified in Table 1 (e.g., `category` for applicable resources), and SHOULD support the Recommended-Support Filters.
+For each supported resource type, servers SHALL support the Required-Support Filters as specified in Table 1, and SHOULD support the Recommended-Support Filters.
+
+Servers SHALL support Subscriptions with zero or more supported filters in any filter-criteria extension.
 
 ### 5.2 Exapmle Subscription Request
 
@@ -352,7 +354,6 @@ Examples:
 
 1. Servers MAY support filters beyond those listed in Table 1 for each resource type.
 2. Servers SHOULD align any additional filters with existing search parameter names, when applicable.
-3. Servers SHALL support Subscriptions with zero or more supported filters in a filter-criteria extension.
 
 ### 6.4 Delivery (Channel and Payload Support)
 1. Servers SHALL support the `rest-hook` channel type for notification delivery.
