@@ -328,7 +328,8 @@ Example Subscription request, demonstrating filters based on patient, category, 
 1. Clients MAY include multiple resource types by supplying multiple filter-criteria extensions in a Subscription request; Servers SHALL process all supplied filter-criteria extensions.
 2. Clients SHALL NOT include `patient=` filters for different patients in the same Subscription.
 3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters.
-4. Clients SHOULD review the persisted Subscription resource to understand which resource types and filters are in effect.
+4. If a server cannot support a requested filter and must broaden it, the server SHALL set the Subscription status to "error"  before persisting it.
+5. Clients SHALL review the persisted Subscription resource to understand which resource types and filters are in effect. If the Subscription has been persisted with a status of "error", the client MAY detect broadened filters and acknowledge them by updating the Subscription to set status back to "requested".
 
 Examples:
 - A server that does not support CareTeam resources might remove the client's `CareTeam` filter-criteria extension to indicate that CareTeam resources will never trigger notifications.
@@ -366,7 +367,8 @@ Examples:
    - Supported notification triggers
    - Supported channel types
    - Supported payload types 
-2. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
+2. Servers SHOULD provide clear error messages in `OperationOutcome.issue.details` when rejecting subscription requests due to unsupported features.
+
 
 ## 7. Additional Considerations
 
