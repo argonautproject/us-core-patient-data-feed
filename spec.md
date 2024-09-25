@@ -366,6 +366,8 @@ Examples:
    - Supported notification triggers
    - Supported channel types
    - Supported payload types 
+   - Delivery guarantees (or lack thereof) pursuant to message delivery (e.g. "at least once", "at most once")
+   - Delivery guarantees (or lack thereof) with respect to ordering by time of occurrence 
 2. Servers SHOULD provide clear error messages when rejecting subscription requests due to unsupported features.
 
 ## 7. Additional Considerations
