@@ -62,9 +62,9 @@ The table below defines the resources, their US Core search parameters, and the 
   </tbody>
 </table>
 
-> **Note**: The `update` trigger does not fire for every FHIR-visible change. It is reserved for clinically significant updates as defined in section 4.1.
+> **Note**: The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
 
-> **Note**: For information on how additional resources can be supported in this topic, see please refer to the [Futures](futures.md) page.
+> **Note**: Servers MAY support additional resources beyond those listed in this table. Preliminary guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
 ## 4. Triggering Events and Notifications
 
@@ -76,11 +76,39 @@ The table below defines the resources, their US Core search parameters, and the 
   * Corrections or amendments modify the resource's meaning
 - `delete`: A resource has been deleted
 
-> **Important**: Clients cannot expect `update` notificaitons for every change that is visible over the FHIR API. Servers have flexibility in determining which changes warrant an `update` notification, and will publish detailed documentation of their specific implementation, based on the definitions provided here.
 
-EHRs MAY expose their own more specific event codes (e.g., "lab_result_final", "medication_administered") in addition to these general triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and how to filter on them using the `trigger` parameter.
 
-When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
+### 4.2 Profile-Specific Mapping for "update" trigger
+
+This section provides specific guidance for a minimum set of events to expose for the "update" trigger. Servers will publish detailed documentation of their triggers work, based on this guidance.
+
+- **US Core DocumentReference**:
+    * A clinical note has new or updated content available, including draft content
+    * The note's status has changed (e.g., preliminary to final, draft to signed)
+    * The note has been amended or corrected
+
+- **US Core Encounter**:
+    * An encounter has started or a patient has been admitted
+    * An encounter has ended or a patient has been discharged
+    * The encounter's status has changed (e.g., planned to in-progress, in-progress to finished)
+
+- **US Core Laboratory Observation**:
+    * A new result (preliminary or final) has become available
+    * An existing result has been updated, amended, or corrected
+    * The observation's status has changed (e.g., preliminary to final)
+
+- **US Core DiagnosticReport for Laboratory Results Reporting**:
+    * A new report (preliminary or final) has become available
+    * An existing report has been updated, amended, or corrected
+    * The report's status has changed (e.g., preliminary to final)
+
+### 4.3 Conformance Requirements for Triggering Events
+
+For each supported resource type:
+- Servers SHALL support the Required-Support Triggers as specified in Table 1
+- Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
+- EHRs MAY expose their own more specific event codes (e.g., "lab_result_final", "medication_administered") in addition to these general triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and how to filter on them using the `trigger` parameter.
+- When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `trigger` sub-part of the `notification-event` part of the Parameters resource. Multiple trigger codes are included if a single change satisfies multiple trigger conditions.
 
 Example of a Parameters resource for a notification with multiple triggers, including an EHR-specific event code and an HL7 v2 event code:
 
@@ -154,101 +182,6 @@ Example of a Parameters resource for a notification with multiple triggers, incl
 }
 ```
 
-### 4.3 Profile-Specific Mapping
-
-This section provides specific guidance for a minimum set of events to expose for the "update" trigger. Servers will publish detailed documentation of their triggers work, based on this guidance.
-
-- **US Core DocumentReference**:
-  - `update`:
-    * A clinical note has new or updated content available, including draft content
-    * The note's status has changed (e.g., preliminary to final, draft to signed)
-    * The note has been amended or corrected
-
-- **US Core Encounter**:
-  - `update`:
-    * An encounter has started or a patient has been admitted
-    * An encounter has ended or a patient has been discharged
-    * The encounter's status has changed (e.g., planned to in-progress, in-progress to finished)
-
-- **US Core Laboratory Observation**:
-  - `update`:
-    * A new result (preliminary or final) has become available
-    * An existing result has been updated, amended, or corrected
-    * The observation's status has changed (e.g., preliminary to final)
-
-- **US Core DiagnosticReport for Laboratory Results Reporting**:
-  - `update`:
-    * A new report (preliminary or final) has become available
-    * An existing report has been updated, amended, or corrected
-    * The report's status has changed (e.g., preliminary to final)
-
-### 4.3 Conformance Requirements for Triggering Events
-
-For each supported resource type:
-- Servers SHALL support the Required-Support Triggers as specified in Table 1
-- Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
-
-Servers that choose to support `delete` triggers SHALL document their specific behavior regarding resource deletion and availability.
-
-When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
-
-Example of a Parameters resource for a notification with multiple triggers:
-
-```json
-{
-  "resourceType": "Parameters",
-  "parameter": [
-    {
-      "name": "subscription",
-      "valueReference": {
-        "reference": "Subscription/example"
-      }
-    },
-    {
-      "name": "topic",
-      "valueCanonical": "http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed"
-    },
-    {
-      "name": "status",
-      "valueCode": "active"
-    },
-    {
-      "name": "type",
-      "valueCode": "event-notification"
-    },
-    {
-      "name": "events-since-subscription-start",
-      "valueString": "5"
-    },
-    {
-      "name": "notification-event",
-      "part": [
-        {
-          "name": "event-number",
-          "valueString": "5"
-        },
-        {
-          "name": "timestamp",
-          "valueInstant": "2023-09-05T14:30:00Z"
-        },
-        {
-          "name": "focus",
-          "valueReference": {
-            "reference": "Observation/lab-result-123"
-          }
-        },
-        {
-          "name": "trigger",
-          "valueCoding": {
-            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "update"
-          }
-        }
-      ]
-    }
-  ]
-}
-```
 
 ## 5. Subscription Filters and Requests
 
@@ -322,7 +255,8 @@ Examples:
 ### 6.2 Resource Support
 
 1. Servers SHALL support at least one resource type from the list in Table 1.
-2. Servers supporting the following profiles SHALL support subscriptions for their resources:
+2. Servers MAY support additional resource tyoes described on the [Additional Resources](additionalresources.md) page.
+3. Servers supporting the following profiles SHALL support subscriptions for their resources:
    - US Core DocumentReference Profile 
    - US Core Encounter Profile
    - US Core DiagnosticReport Profile for Laboratory Results Reporting
@@ -372,4 +306,4 @@ While detailed security implementations are beyond the scope of this specificati
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the SubscriptionTopic resource itself. Instead, it focuses on standardizing the functionality of the `patient-data-feed` topic and the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, filters, and triggers.
 
 As the FHIR community continues to develop and standardize subscription-related features, this specification will be updated to align with best practices and emerging standards.
-For information on how to support additional resources and potential future enhancements please refer to the [Futures](futures.md) page.
+
