@@ -26,7 +26,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <th>Resource</th>
       <th>Required-Support Triggers</th>
       <th>Conditional-Support Triggers</th>
-      <th>Optional-Support Triggers</th>
       <th>Required-Support Filters</th>
       <th>Recommended-Support Filters</th>
     </tr>
@@ -36,7 +35,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>DiagnosticReport</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -44,7 +42,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>DocumentReference</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
     </tr>
@@ -52,7 +49,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>Encounter</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td>type</td>
     </tr>
@@ -60,7 +56,6 @@ The table below defines the resources, their US Core search parameters, and the 
       <td>Observation</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -191,7 +186,6 @@ This section provides specific guidance for a minimum set of events to expose fo
 
 For each supported resource type:
 - Servers SHALL support the Required-Support Triggers as specified in Table 1
-- Servers MAY support the Optional-Support Triggers as specified in Table 1
 - Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
 
 Servers that choose to support `delete` triggers SHALL document their specific behavior regarding resource deletion and availability.

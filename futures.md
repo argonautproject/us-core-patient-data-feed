@@ -12,7 +12,6 @@ The following table outlines additional resources that may be supported in futur
       <th>Resource</th>
       <th>Required-Support Triggers</th>
       <th>Conditional-Support Triggers</th>
-      <th>Optional-Support Triggers</th>
       <th>Required-Support Filters</th>
       <th>Recommended-Support Filters</th>
     </tr>
@@ -22,7 +21,6 @@ The following table outlines additional resources that may be supported in futur
       <td>AllergyIntolerance</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -30,7 +28,6 @@ The following table outlines additional resources that may be supported in futur
       <td>CarePlan</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td></td>
     </tr>
@@ -38,7 +35,6 @@ The following table outlines additional resources that may be supported in futur
       <td>CareTeam</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -46,7 +42,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Condition</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -54,7 +49,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Coverage</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -62,7 +56,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Goal</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -70,7 +63,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Immunization</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -78,7 +70,6 @@ The following table outlines additional resources that may be supported in futur
       <td>MedicationDispense</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>type<br>trigger</td>
       <td></td>
     </tr>
@@ -86,7 +77,6 @@ The following table outlines additional resources that may be supported in futur
       <td>MedicationRequest</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -94,7 +84,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Patient</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>_id<br>trigger</td>
       <td></td>
     </tr>
@@ -102,7 +91,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Procedure</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td>code</td>
     </tr>
@@ -110,7 +98,6 @@ The following table outlines additional resources that may be supported in futur
       <td>QuestionnaireResponse</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -118,7 +105,6 @@ The following table outlines additional resources that may be supported in futur
       <td>RelatedPerson</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
@@ -126,7 +112,6 @@ The following table outlines additional resources that may be supported in futur
       <td>ServiceRequest</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -134,7 +119,6 @@ The following table outlines additional resources that may be supported in futur
       <td>Specimen</td>
       <td><nobr>create</nobr><br><nobr>update</nobr></td>
       <td><nobr>delete</nobr></td>
-      <td></td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
