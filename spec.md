@@ -80,7 +80,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 ### 4.2 Profile-Specific Mapping for "update" trigger
 
-This section provides specific guidance for a minimum set of events to expose for the "update" trigger. Servers will publish detailed documentation of their triggers work, based on this guidance.
+This section provides guidance for a minimum set of events to expose via the "update" trigger. Servers will publish detailed documentation of their trigger functionality based on this guidance.
 
 - **US Core DocumentReference**:
     * A clinical note has new or updated content available, including draft content
