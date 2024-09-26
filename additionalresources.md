@@ -1,4 +1,4 @@
-# Patient Data Feed: Additional Optional Resources
+# Patient Data Feed: Additional Resources
 
 ## 1. Overview
 
