@@ -226,11 +226,6 @@ This guidance illustrates how the `update` trigger might be applied to the addit
 
 ## 4. Future Enhancements
 
-As the FHIR community continues to develop and standardize subscription-related features, this list of additional resources may be updated. Potential future enhancements include:
-
-1. Refining the `update` event trigger definition across different resource types
-2. Adding new triggers as needed based on implementer feedback
-3. Expanding support for additional resources beyond this list
-4. Improving performance optimization techniques for high-volume subscriptions
+As the FHIR community continues to develop and standardize subscription-related features, this list of additional resources may be updated, and resources may graduate from this list to the [Required Resources Table 1](spec.md).
 
 Implementers are encouraged to provide feedback on their experiences with these additional resources to help shape future versions of this specification align with real-world experience.
