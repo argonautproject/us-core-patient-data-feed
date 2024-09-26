@@ -18,7 +18,7 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Resources, Filters, and Triggers
 
-The table below defines a minimal set of resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. 
+The table below defines a minimal set of required resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. 
 
 Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
