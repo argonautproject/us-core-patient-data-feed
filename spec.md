@@ -22,6 +22,7 @@ The table below defines a minimal set of resources, their US Core search paramet
 
 Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
+*Table 1. Required Resources*.
 <table>
   <thead>
     <tr>
