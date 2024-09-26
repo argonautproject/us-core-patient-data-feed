@@ -70,7 +70,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 ### 4.1 Definitions of Triggers
 - `create`: A resource has been created
-- `update`: A clinically significant update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose a variety of internal events as "update", including when:
+- `update`: An update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose a variety of internal events as "update", including when:
   * New or updated content is available for clinical use
   * Status changes affect the resource's usability or interpretation
   * Corrections or amendments modify the resource's meaning
