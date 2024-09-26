@@ -64,7 +64,7 @@ The table below defines the resources, their US Core search parameters, and the 
 
 > **Note**: The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
 
-> **Note**: Servers MAY support additional resources beyond those listed in this table. Preliminary guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
+> **Note**: Servers MAY support additional resources beyond those listed in this table. Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
 ## 4. Triggering Events and Notifications
 
