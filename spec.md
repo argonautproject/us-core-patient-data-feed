@@ -18,200 +18,107 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Resources, Filters, and Triggers
 
-The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. **Servers may choose to support any subset of these resources and filters**, as long as they meet the requirements described in _Conformance_.
+The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. 
 
 <table>
   <thead>
     <tr>
       <th>Resource</th>
       <th>Required-Support Triggers</th>
-      <th>Recommended-Support Triggers</th>
+      <th>Conditional-Support Triggers</th>
+      <th>Optional-Support Triggers</th>
       <th>Required-Support Filters</th>
       <th>Recommended-Support Filters</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>AllergyIntolerance</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>CarePlan</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>category<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>CareTeam</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Condition</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
-    </tr>
-    <tr>
-      <td>Coverage</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
       <td>DiagnosticReport</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>update</nobr></td>
+      <td><nobr>delete</nobr></td>
+      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>DocumentReference</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>update</nobr></td>
+      <td><nobr>delete</nobr></td>
+      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
       <td>Encounter</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>active</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>update</nobr></td>
+      <td><nobr>delete</nobr></td>
+      <td></td>
       <td>patient<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
-      <td>Goal</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Immunization</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>MedicationDispense</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>type<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>MedicationRequest</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
       <td>Observation</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>draft</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
+      <td><nobr>create</nobr><br><nobr>update</nobr></td>
+      <td><nobr>delete</nobr></td>
+      <td></td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
-    </tr>
-    <tr>
-      <td>Patient</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>_id<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Procedure</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr><br><nobr>active</nobr></td>
-      <td>patient<br>trigger</td>
-      <td>code</td>
-    </tr>
-    <tr>
-      <td>QuestionnaireResponse</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>RelatedPerson</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ServiceRequest</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>category<br>trigger</td>
-      <td>code</td>
-    </tr>
-    <tr>
-      <td>Specimen</td>
-      <td><nobr>create</nobr><br><nobr>delete</nobr><br><nobr>finalize</nobr></td>
-      <td><nobr>update</nobr></td>
-      <td>patient<br>trigger</td>
-      <td></td>
     </tr>
   </tbody>
 </table>
 
-> **Maintenance of Table 1**
-> 
-> 1. Updates will be made any time new patient-focused resources are added to US Core.
-> 2. For each new resource, filters will be predefined whenever US Core's required search parameters include:
->    - Patient context
->    - Category-level codes
->    - Instance-level codes
-> 3. The mandatory generic triggering events (create, delete, finalize) will be included for all resources.
-> 4. Specific triggering events (e.g., draft, active) will be added to relevant resources as they are defined.
+> **Note**: The `update` trigger does not fire for every FHIR-visible change. It is reserved for clinically significant updates as defined in section 4.1.
+
+> **Note**: For information on how additional resources can be supported in this topic, see please refer to the [Futures](futures.md) page.
 
 ## 4. Triggering Events and Notifications
 
 ### 4.1 Definitions of Triggers
 - `create`: A resource has been created
-- `update`: A resource has been updated.
+- `update`: A clinically significant update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose a variety of internal events as "update", including when:
+  * New or updated content is available for clinical use
+  * Status changes affect the resource's usability or interpretation
+  * Corrections or amendments modify the resource's meaning
 - `delete`: A resource has been deleted
-- `draft`: A resource is in a preliminary state with partial content.
-- `active`: A resource is currently in use or being acted upon.
-- `finalize`: A resource has reached a state that is considered complete or ready for use, such as:
-   - Entering a status such as "final", "completed", "amended", or "entered-in-error"
-   - Reaching a point where the resource is considered clinically relevant and actionable
-   - Note: The resource may still be subject to future updates, such as amendments or corrections which could **re-trigger** `finalize`
 
+> **Important**: Clients cannot expect `update` notificaitons for every change that is visible over the FHIR API. Servers have flexibility in determining which changes warrant an `update` notification, and will publish detailed documentation of their specific implementation, based on the definitions provided here.
 
-#### Understanding Events for Key Profiles
+### 4.3 Profile-Specific Mapping
+
+This section provides specific guidance for a minimum set of events to expose for the "update" trigger. Servers will publish detailed documentation of their triggers work, based on this guidance.
 
 - **US Core DocumentReference**:
-  - `draft`: A clinical note has draft content available
-  - `finalize`: A clinical note has been signed, amended, or otherwise entered a final status.
+  - `update`:
+    * A clinical note has new or updated content available, including draft content
+    * The note's status has changed (e.g., preliminary to final, draft to signed)
+    * The note has been amended or corrected
 
 - **US Core Encounter**:
-  - `active`: An encounter has started or a patient has been admitted.
-  - `finalize`: An encounter has ended, a patient has been discharged, or the encounter has otherwise entered a final status.
+  - `update`:
+    * An encounter has started or a patient has been admitted
+    * An encounter has ended or a patient has been discharged
+    * The encounter's status has changed (e.g., planned to in-progress, in-progress to finished)
 
 - **US Core Laboratory Observation**:
-  - `draft`: A preliminary result has become available.
-  - `finalize`: A final result, amended result, or corrected result has become available, or the observation has otherwise entered a final status.
+  - `update`:
+    * A new result (preliminary or final) has become available
+    * An existing result has been updated, amended, or corrected
+    * The observation's status has changed (e.g., preliminary to final)
 
 - **US Core DiagnosticReport for Laboratory Results Reporting**:
-  - `draft`: A preliminary result has become available.
-  - `finalize`: A final result, amended result, or corrected result has become available, or the diagnostic report has otherwise entered a final status.
+  - `update`:
+    * A new report (preliminary or final) has become available
+    * An existing report has been updated, amended, or corrected
+    * The report's status has changed (e.g., preliminary to final)
 
-### 4.2 Conformance Requirements for Triggering Events
+### 4.3 Conformance Requirements for Triggering Events
 
-For each supported resource type, servers SHALL support the Required-Support Triggers as specified in Table 1, and SHOULD support the Recommended-Support Triggers.
+For each supported resource type:
+- Servers SHALL support the Required-Support Triggers as specified in Table 1
+- Servers MAY support the Optional-Support Triggers as specified in Table 1
+- Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
+
+Servers that choose to support `delete` triggers SHALL document their specific behavior regarding resource deletion and availability.
 
 When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
 
@@ -264,7 +171,7 @@ Example of a Parameters resource for a notification with multiple triggers:
           "name": "trigger",
           "valueCoding": {
             "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "finalize"
+            "code": "update"
           }
         }
       ]
@@ -281,7 +188,7 @@ For each supported resource type, servers SHALL support the Required-Support Fil
 
 Servers SHALL support Subscriptions with zero or more supported filters in any filter-criteria extension.
 
-### 5.2 Exapmle Subscription Request
+### 5.1 Example Subscription Request
 
 Example Subscription request, demonstrating filters based on patient, category, and trigger event.
 
@@ -295,7 +202,7 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=finalize"
+        "valueString": "Encounter?patient=123&trigger=update"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
@@ -323,7 +230,7 @@ Example Subscription request, demonstrating filters based on patient, category, 
 }
 ```
 
-### 5.3 Handling Multiple Resource Types and Filters
+### 5.2 Handling Multiple Resource Types and Filters
 
 1. Clients MAY include multiple resource types by supplying multiple filter-criteria extensions in a Subscription request; Servers SHALL process all supplied filter-criteria extensions.
 2. Clients SHALL NOT include `patient=` filters for different patients in the same Subscription.
@@ -364,11 +271,16 @@ Examples:
 ### 6.6 Documentation and Error Handling
 1. Servers SHALL clearly document the following in their developer-facing documentation:
    - Supported resources, filters, and triggers
-   - Supported notification triggers
    - Supported channel types
    - Supported payload types 
-2. Servers SHOULD provide clear error messages in `OperationOutcome.issue.details` when rejecting subscription requests due to unsupported features.
-
+   - How their update notification implementation works, including:
+     * An explanation of the internal events or conditions that trigger notifications
+     * Any throttling or batching mechanisms used to manage notification frequency
+     * The expected latency between a resource change and the corresponding notification
+     * Any limitations or edge cases that clients should be aware of
+   - Criteria for firing the `update` trigger, including examples of changes that would and would not result in a notification
+2. Clients SHALL review server documentation to understand the circumstances under which `update` notifications are triggered, as these may correspond to a subset of changes to data as visible over the FHIR REST API.
+3. Servers SHOULD provide clear error messages in `OperationOutcome.issue.details` when rejecting subscription requests due to unsupported features.
 
 ## 7. Additional Considerations
 
@@ -389,8 +301,5 @@ While detailed security implementations are beyond the scope of this specificati
 
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the SubscriptionTopic resource itself. Instead, it focuses on standardizing the functionality of the `patient-data-feed` topic and the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, filters, and triggers.
 
-Future work may include:
-1. Improving the structure and content of SubscriptionTopic resources
-2. Enhancing discovery mechanisms for available topics, triggers, and filters
-3. Formalizing the compositional nature of topics and triggers
-
+As the FHIR community continues to develop and standardize subscription-related features, this specification will be updated to align with best practices and emerging standards.
+For information on how to support additional resources and potential future enhancements please refer to the [Futures](futures.md) page.
