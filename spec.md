@@ -84,23 +84,23 @@ This section provides specific guidance for a minimum set of events to expose fo
 
 - **US Core DocumentReference**:
     * A clinical note has new or updated content available, including draft content
-    * The note's status has changed (e.g., preliminary to final, draft to signed)
+    * The note's status has changed (e.g., preliminary to final, draft to signed, or any status to entered-in-error)
     * The note has been amended or corrected
 
 - **US Core Encounter**:
     * An encounter has started or a patient has been admitted
     * An encounter has ended or a patient has been discharged
-    * The encounter's status has changed (e.g., planned to in-progress, in-progress to finished)
+    * The encounter's status has changed (e.g., planned to in-progress, in-progress to finished, or any status to entered-in-error)
 
 - **US Core Laboratory Observation**:
     * A new result (preliminary or final) has become available
     * An existing result has been updated, amended, or corrected
-    * The observation's status has changed (e.g., preliminary to final)
+    * The observation's status has changed (e.g., preliminary to final, or any status to entered-in-error)
 
 - **US Core DiagnosticReport for Laboratory Results Reporting**:
     * A new report (preliminary or final) has become available
     * An existing report has been updated, amended, or corrected
-    * The report's status has changed (e.g., preliminary to final)
+    * The report's status has changed (e.g., preliminary to final, or any status to entered-in-error)
 
 ### 4.3 Conformance Requirements for Triggering Events
 
