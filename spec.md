@@ -83,6 +83,82 @@ The table below defines the resources, their US Core search parameters, and the 
 
 > **Important**: Clients cannot expect `update` notificaitons for every change that is visible over the FHIR API. Servers have flexibility in determining which changes warrant an `update` notification, and will publish detailed documentation of their specific implementation, based on the definitions provided here.
 
+EHRs MAY expose their own more specific event codes (e.g., "lab_result_final", "medication_administered") in addition to these general triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and how to filter on them using the `trigger` parameter.
+
+When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `notification-event` part, `trigger` sub-part of the notification Parameters resource. Multiple trigger codes may be included if a single change satisfies multiple trigger conditions.
+
+Example of a Parameters resource for a notification with multiple triggers, including an EHR-specific event code and an HL7 v2 event code:
+
+```json
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "subscription",
+      "valueReference": {
+        "reference": "Subscription/example"
+      }
+    },
+    {
+      "name": "topic",
+      "valueCanonical": "http://hl7.org/fhir/us/core/SubscriptionTopic/patient-data-feed"
+    },
+    {
+      "name": "status",
+      "valueCode": "active"
+    },
+    {
+      "name": "type",
+      "valueCode": "event-notification"
+    },
+    {
+      "name": "events-since-subscription-start",
+      "valueString": "5"
+    },
+    {
+      "name": "notification-event",
+      "part": [
+        {
+          "name": "event-number",
+          "valueString": "5"
+        },
+        {
+          "name": "timestamp",
+          "valueInstant": "2023-09-05T14:30:00Z"
+        },
+        {
+          "name": "focus",
+          "valueReference": {
+            "reference": "Observation/lab-result-123"
+          }
+        },
+        {
+          "name": "trigger",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
+            "code": "update"
+          }
+        },
+        {
+          "name": "trigger",
+          "valueCoding": {
+            "system": "http://example.com/ehr-events",
+            "code": "lab_result_final"
+          }
+        },
+        {
+          "name": "trigger",
+          "valueCoding": {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0003",
+            "code": "R01"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### 4.3 Profile-Specific Mapping
 
 This section provides specific guidance for a minimum set of events to expose for the "update" trigger. Servers will publish detailed documentation of their triggers work, based on this guidance.
