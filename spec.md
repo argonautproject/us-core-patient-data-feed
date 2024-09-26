@@ -22,6 +22,7 @@ The table below defines a minimal set of required resources, their US Core searc
 
 Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
+<a id="table1"></>
 *Table 1. Required Resources*.
 <table>
   <thead>
