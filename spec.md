@@ -18,7 +18,9 @@ Clients use this topic URL when creating Subscriptions to indicate they are requ
 
 ## 3. Resources, Filters, and Triggers
 
-The table below defines the resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. 
+The table below defines a minimal set of resources, their US Core search parameters, and the standardized triggering events for the Patient Feed. 
+
+Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
 <table>
   <thead>
@@ -63,8 +65,6 @@ The table below defines the resources, their US Core search parameters, and the 
 </table>
 
 > **Note**: The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
-
-> **Note**: Servers MAY support additional resources beyond those listed in this table. Guidance for supporting additional resources is provided in the [Additional Resources](additionalresources.md) page.
 
 ## 4. Triggering Events and Notifications
 
