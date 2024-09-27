@@ -79,7 +79,7 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 > **Note**: 
 > 1. The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
 > 2. An `update` event may correspond to the first time a client sees a resource (e.g., if they were not previously authorized to access it) or the last time (e.g., if the resource has transitioned to a state where the client is no longer authorized to see it).
-> 3. When using `trigger=` filters, clients will typically include the `update` trigger alongside `create` and `delete`. Requesting only `create` or `delete` triggers could miss important changes. The primary value of trigger-based filtering comes in down-selecting based on finer-grained event codes that EHRs can overlay (see Section 4.3).
+> 3. Clients will generally want to avoid using `trigger=` filters to distinguish `update` from `create` and `delete` events, given (2). The primary value of trigger-based filtering is to enable filtering based on finer-grained event codes that servers can overlay onto this framework (see Section 4.3).
 
 
 
