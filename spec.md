@@ -109,7 +109,7 @@ This section provides guidance for a minimum set of events to expose via the "up
 For each supported resource type:
 - Servers SHALL support the Required-Support Triggers as specified in Table 1
 - Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
-- EHRs MAY expose their own more specific event codes (e.g., "lab_result_final", "medication_administered") in addition to these general triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and how to filter on them using the `trigger` parameter.
+- EHRs MAY overlay their own more specific event codes (e.g., "lab_result_final", "medication_administered") onto these generic triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and enable filtering them using the `trigger` filter.
 - When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `trigger` sub-part of the `notification-event` part of the Parameters resource. Multiple trigger codes are included if a single change satisfies multiple trigger conditions.
 
 Example of a Parameters resource for a notification with multiple triggers, including an EHR-specific event code and an HL7 v2 event code:
