@@ -66,8 +66,6 @@ Guidance for supporting additional resources is provided in the [Additional Reso
   </tbody>
 </table>
 
-> **Note**: The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
-
 ## 4. Triggering Events and Notifications
 
 ### 4.1 Definitions of Triggers
@@ -77,6 +75,11 @@ Guidance for supporting additional resources is provided in the [Additional Reso
   * Status changes affect the resource's usability or interpretation
   * Corrections or amendments modify the resource's meaning
 - `delete`: A resource has been deleted
+
+> **Note**: 
+> 1. The `update` trigger might not fire for every FHIR-visible change. See descriptions in section 4.1.
+> 2. An `update` event may correspond to the first time a client sees a resource (e.g., if they were not previously authorized to access it) or the last time (e.g., if the resource has transitioned to a state where the client is no longer authorized to see it).
+> 3. When using `trigger=` filters, clients will typically include the `update` trigger alongside `create` and `delete`. Requesting only `create` or `delete` triggers could miss important changes. The primary value of trigger-based filtering comes in down-selecting based on finer-grained event codes that EHRs can overlay (see Section 4.3).
 
 
 
