@@ -140,8 +140,7 @@ When implementing the `update` trigger for these optional resources, Servers sho
 - **CarePlan**:
     - Initial care plan details become available
     - Care plan status changes (e.g., from 'draft' to 'active')
-    - Goals, activities, or interventions are added, modified, or completed
-    - Care team members are updated
+    - Goals or activities are added, modified, or completed
 
 - **CareTeam**:
     - Initial care team information becomes available
@@ -153,7 +152,6 @@ When implementing the `update` trigger for these optional resources, Servers sho
     - Initial condition information becomes available
     - Clinical status or verification status changes
     - Condition severity or stage is updated
-    - Related encounters or episodes of care are linked
 
 - **Coverage**:
     - Initial coverage information becomes available
@@ -171,19 +169,16 @@ When implementing the `update` trigger for these optional resources, Servers sho
     - Initial immunization record is created
     - Immunization status is updated (e.g., from 'in-progress' to 'completed')
     - Additional dose information is added
-    - Adverse events are recorded
 
 - **MedicationDispense**:
     - Initial medication dispense record is created
     - Dispense status changes
-    - Quantity or days supply is modified
-    - Pickup or delivery information is updated
+    - Quantity is modified
 
 - **MedicationRequest**:
     - Initial medication request is created
     - Status changes (e.g., from 'active' to 'completed' or 'stopped')
     - Dosage instructions are modified
-    - Fulfillment information is updated
 
 - **Patient**:
     - Demographic information is modified
@@ -194,19 +189,16 @@ When implementing the `update` trigger for these optional resources, Servers sho
 - **Procedure**:
     - Initial procedure information becomes available
     - Procedure status changes (e.g., from 'in-progress' to 'completed')
-    - Complications or follow-up details are added
-    - Procedure notes or reports are updated
 
 - **QuestionnaireResponse**:
     - Initial questionnaire response is recorded
     - Answers are modified or added
     - Status changes (e.g., from 'in-progress' to 'completed')
-    - Linked encounters or authors are updated
 
 - **RelatedPerson**:
     - Initial related person information is recorded
     - Relationship type or period changes
-    - Contact information is modified
+    - Contact information or address is modified
     - Active status is updated
 
 - **ServiceRequest**:
@@ -219,10 +211,8 @@ When implementing the `update` trigger for these optional resources, Servers sho
     - Initial specimen information is recorded
     - Specimen status changes
     - Collection details are modified
-    - Processing or storage information is updated
 
 This guidance illustrates how the `update` trigger might be applied to the additional resources. Implementers eill document specific criteria for when `update` notifications are sent based on their system's capabilities and clinical relevance.
-
 
 ## 4. Future Enhancements
 
