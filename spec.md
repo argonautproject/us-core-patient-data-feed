@@ -70,14 +70,14 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 
 ### 4.1 Definitions of Triggers
 - `create`: A resource has been created
-- `update`: An update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose a variety of internal events as "update", including when:
+- `update`: An update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose diverse internal events as "update", including when:
   * New or updated content is available for clinical use
   * Status changes affect the resource's usability or interpretation
   * Corrections or amendments modify the resource's meaning
 - `delete`: A resource has been deleted
 
 > **Note**: 
-> 1. An `update` event Will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
+> 1. An `update` event will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
 > 2. An `update` event may correspond to the first time a client sees a resource (e.g., if they were not previously authorized to access it) or the last time (e.g., if the resource has transitioned to a state where the client is no longer authorized to see it).
 > 3. Clients will generally want to avoid using `trigger=` filters to separate `update` from `create` and `delete` events, given (1) and (2). The primary value of trigger-based filtering is to distinguish among finer-grained event codes that servers can overlay onto this framework (see Section 4.3).
 
