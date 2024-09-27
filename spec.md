@@ -187,7 +187,6 @@ Example of a Parameters resource for a notification with multiple triggers, incl
 }
 ```
 
-
 ## 5. Subscription Filters and Requests
 
 Servers SHALL allow clients to create Subscriptions according to http://hl7.org/fhir/uv/subscriptions-backport. This includes "filter-criteria" extensions for each resource where notifications are requested.
@@ -200,7 +199,7 @@ Servers SHALL support Subscriptions with zero or more supported filters in any f
 
 Example Subscription request, demonstrating filters based on patient, category, and trigger event.
 
-```json
+```js
 {
   "resourceType": "Subscription",
   "status": "requested",
@@ -210,15 +209,20 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=update"
+        "valueString": "Encounter?patient=123&trigger=create,update,delete"
+        //              ^ equivalent to "all events"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Observation?patient=123&category=laboratory"
+        "valueString": "Observation?patient=123&trigger=http://terminology.hl7.org/CodeSystem/v2-0003|R01"
+        //              ^ example of filtering if the EHR offers granular or custom event codes
+
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
         "valueString": "DiagnosticReport?patient=123&category=LAB"
+        //              ^ example of filtering by category
+
       }
     ]
   },
@@ -301,7 +305,6 @@ Servers implementing the Patient Data Feed should consider the following perform
 
 2. Event Batching: For subscriptions with high update frequencies, servers can implement batching strategies to group multiple events into a single notification bundle.
 
-
 ### 7.2 Security Considerations
 
 While detailed security implementations are beyond the scope of this specification, servers must maintain the same level of access control and security for subscription notifications as they do for direct REST API access. Key considerations include authentication, authorization, encryption in transit (https), and audit logging.  Implementers are encouraged to refer to the FHIR Security and Privacy Module (http://hl7.org/fhir/security.html) and relevant security best practices for additional guidance.
@@ -311,4 +314,3 @@ While detailed security implementations are beyond the scope of this specificati
 The standardization of how to model and publish topics for discovery is ongoing work in the FHIR community. US Core's Patient Data Feed does not yet address the standardization of the SubscriptionTopic resource itself. Instead, it focuses on standardizing the functionality of the `patient-data-feed` topic and the expectations of Subscription management, allowing for interoperability based on the canonical URL, supported resources, filters, and triggers.
 
 As the FHIR community continues to develop and standardize subscription-related features, this specification will be updated to align with best practices and emerging standards.
-
