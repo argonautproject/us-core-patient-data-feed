@@ -245,14 +245,26 @@ Example Subscription request, demonstrating filters based on patient, category, 
 ### 5.2 Handling Multiple Resource Types and Filters
 
 1. Clients MAY include multiple resource types by supplying multiple filter-criteria extensions in a Subscription request; Servers SHALL process all supplied filter-criteria extensions.
-2. Clients SHALL NOT include `patient=` filters for different patients in the same Subscription.
-3. Servers SHOULD adjust the requested Subscription before persisting, based on the supported types and filters.
-4. If a server cannot support a requested filter and must broaden it, the server SHALL set the Subscription status to "error"  before persisting it.
-5. Clients SHALL review the persisted Subscription resource to understand which resource types and filters are in effect. If the Subscription has been persisted with a status of "error", the client MAY detect broadened filters and acknowledge them by updating the Subscription to set status back to "requested".
 
-Examples:
-- A server that does not support CareTeam resources might remove the client's `CareTeam` filter-criteria extension to indicate that CareTeam resources will never trigger notifications.
-- A server that only supports notifications for laboratory observations might adjust the client's `Observation` filter-criteria extension to `Observation?category=laboratory` to indicate that other categories will never trigger notifications.
+2. Clients SHALL NOT include `patient=` filters for different patients in the same Subscription.
+
+3. Servers SHALL make any **adjustments** needed to ensure that the filter-criteria extensions align with server capabilities. Adjustments consist of:
+   - Removing unsupported elements (such as resource types, triggers, or filters) that the server cannot handle
+   - Adding any implicitly required filters (such as category restrictions that the server always applies)
+
+4. When no adjustments are made, Servers SHALL process the request as a normal create.
+
+5. When any adjustments are made, Servers SHALL persist the Subscription resource with the adjusted filter-criteria and the subscription status set to "error".
+
+6. Clients SHALL review the persisted Subscription resource to understand the status, resource types, triggers, and filters that are in effect.
+
+7. If the Subscription has been persisted with a status of "error", the client MAY:
+   a. Accept the adjusted subscription by updating the Subscription to set status to "requested".
+   b. Delete the subscription and create a new one with different parameters.
+
+Examples of potential adjustments:
+- A server that does not support CareTeam resources might remove the client's `CareTeam` filter-criteria extension entirely.
+- A server that only supports notifications for laboratory observations might add `category=laboratory` to the client's `Observation` filter-criteria extension if it wasn't already present.
 
 ## 6. Additional Conformance Requirements
 
