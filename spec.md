@@ -66,6 +66,8 @@ Guidance for supporting additional resources is provided in the [Additional Reso
   </tbody>
 </table>
 
+> **Note**: Servers can support a limited set of profiles for these resources. See the [Conformance Requirements](#6-additional-conformance-requirements) for details.
+
 ## 4. Triggering Events and Notifications
 
 ### 4.1 Definitions of Triggers
@@ -276,12 +278,13 @@ Examples of potential adjustments:
 ### 6.2 Resource Support
 
 1. Servers SHALL support at least one resource type from the list in Table 1.
-2. Servers MAY support additional resource tyoes described on the [Additional Resources](additionalresources.md) page.
+2. Servers MAY support additional resource types described on the [Additional Resources](additionalresources.md) page.
 3. Servers supporting the following profiles SHALL support subscriptions for their resources:
    - US Core DocumentReference Profile 
    - US Core Encounter Profile
    - US Core DiagnosticReport Profile for Laboratory Results Reporting
    - US Core Laboratory Result Observation Profile
+4. Servers MAY enable subscriptions for a limited set of profiles on supported resources by adjusting any necessary filters (e.g., `category` or `type`; see Section 5.2 for details on adjustments).
 
 ### 6.3 Filter Support
 
