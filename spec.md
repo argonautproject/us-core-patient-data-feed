@@ -69,16 +69,21 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 
 ### 4.1 Definition of patient-feed-event Trigger
 
-The `patient-feed-event` trigger encompasses scenarios where an event occurs that results in changes to a FHIR resource including:
+The `patient-feed-event` trigger can be implemented in two ways:
+
+1. **Event-Driven**: The system sends notifications when something meaningful happens (like a patient being admitted or a provider signing a note)
+2. **Data-Driven**: The system sends notifications when FHIR resources change directly
+
+Servers SHALL implement at least one of these approaches and document which one(s) they use. In either case, common examples of changes that may trigger notifications include:
 
 - New or updated content is available for clinical use
 - Status changes affect the resource's usability or interpretation
 - Corrections or amendments modify the resource's meaning
 
+
 > **Note**: 
 > 1. A `patient-feed-event` will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
-> 2. A `patient-feed-event` may correspond to the first time a client sees a resource (e.g., if they were not previously authorized to access it) or the last time (e.g., if the resource has transitioned to a state where the client is no longer authorized to see it).
-> 3. Servers MAY overlay their own more specific event codes onto this generic trigger. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates.
+> 2. Servers MAY overlay their own more specific event codes onto this generic trigger. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates.
 
 ### 4.2 Profile-Specific Mapping for "update" trigger
 
