@@ -2,7 +2,9 @@
 
 ## 1. Overview
 
-The Patient Data Feed is an optional feature for servers implementing US Core. It allows clients to receive FHIR Subscription Notifications when changes occur to patient-oriented data.
+The Patient Data Feed is an optional feature for servers implementing US Core. It allows clients to receive FHIR Subscription Notifications when events occur related to US Core content.
+
+> **Note**: This specification does not yet address the standardization of the SubscriptionTopic resource itself. Instead, it focuses on standardizing the functionality of the `patient-data-feed` topic and the expectations of Subscription management. For more information on future work in this area, see [Section 8. Future Work](#8-future-work).
 
 Servers can start simple. A minimal implementation might support just a few key US Core profiles to enable subscriptions for DiagnosticReport, DocumentReference, Encounter, and Observation. From there, servers can expand to cover more resources as needed.
 
@@ -29,7 +31,6 @@ Guidance for supporting additional resources is provided in the [Additional Reso
     <tr>
       <th>Resource</th>
       <th>Required-Support Triggers</th>
-      <th>Conditional-Support Triggers</th>
       <th>Required-Support Filters</th>
       <th>Recommended-Support Filters</th>
     </tr>
@@ -37,29 +38,25 @@ Guidance for supporting additional resources is provided in the [Additional Reso
   <tbody>
     <tr>
       <td>DiagnosticReport</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>DocumentReference</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
       <td>Encounter</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
       <td>Observation</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -70,20 +67,23 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 
 ## 4. Triggering Events and Notifications
 
-### 4.1 Definitions of Triggers
-- `create`: A resource has been created
-- `update`: An update has occurred to the resource. Servers MAY implement this trigger in such a way that not every change to the FHIR resource representation will result in a notification. Servers can expose diverse internal events as "update", including when:
-  * New or updated content is available for clinical use
-  * Status changes affect the resource's usability or interpretation
-  * Corrections or amendments modify the resource's meaning
-- `delete`: A resource has been deleted
+### 4.1 Definition of patient-feed-event Trigger
+
+The `patient-feed-event` trigger can be implemented in two ways:
+
+1. **Event-Driven**: The system sends notifications when something meaningful happens (like a patient being admitted or a provider signing a note)
+2. **Data-Driven**: The system sends notifications when FHIR resources change directly
+
+Servers SHALL implement at least one of these approaches and document which one(s) they use. In either case, common examples of changes that may trigger notifications include:
+
+- New or updated content is available for clinical use
+- Status changes affect the resource's usability or interpretation
+- Corrections or amendments modify the resource's meaning
+
 
 > **Note**: 
-> 1. An `update` event will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
-> 2. An `update` event may correspond to the first time a client sees a resource (e.g., if they were not previously authorized to access it) or the last time (e.g., if the resource has transitioned to a state where the client is no longer authorized to see it).
-> 3. Clients will generally want to avoid using `trigger=` filters to separate `update` from `create` and `delete` events, given (1) and (2). The primary value of trigger-based filtering is to distinguish among finer-grained event codes that servers can overlay onto this framework (see Section 4.3).
-
-
+> 1. A `patient-feed-event` will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
+> 2. Servers MAY overlay their own more specific event codes onto this generic trigger. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates.
 
 ### 4.2 Profile-Specific Mapping for "update" trigger
 
@@ -113,7 +113,6 @@ This section provides guidance for a minimum set of events to expose via the "up
 
 For each supported resource type:
 - Servers SHALL support the Required-Support Triggers as specified in Table 1
-- Servers SHALL support the Conditional-Support Triggers (i.e., `delete`) if they support deletion of the corresponding FHIR resources
 - EHRs MAY overlay their own more specific event codes (e.g., "lab_result_final", "medication_administered") onto these generic triggers. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates. EHRs that implement this approach SHALL document their event codes and enable filtering them using the `trigger` filter.
 - When sending a notification, servers SHALL include all applicable supported triggering event code(s) in the `trigger` sub-part of the `notification-event` part of the Parameters resource. Multiple trigger codes are included if a single change satisfies multiple trigger conditions.
 
@@ -211,8 +210,8 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=create,update,delete"
-        //              ^ equivalent to "all events"
+        "valueString": "Encounter?patient=123&trigger=patient-feed-event"
+        //              ^ equivalent to "all available events"
       },
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",

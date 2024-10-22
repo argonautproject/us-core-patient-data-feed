@@ -13,7 +13,6 @@ The following table outlines additional resources that Servers may support for t
     <tr>
       <th>Resource</th>
       <th>Required-Support Triggers</th>
-      <th>Conditional-Support Triggers</th>
       <th>Required-Support Filters</th>
       <th>Recommended-Support Filters</th>
     </tr>
@@ -21,115 +20,100 @@ The following table outlines additional resources that Servers may support for t
   <tbody>
     <tr>
       <td>AllergyIntolerance</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>CarePlan</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>CareTeam</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Condition</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>Coverage</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Goal</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Immunization</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>MedicationDispense</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>type<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>MedicationRequest</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Patient</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>_id<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Procedure</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>QuestionnaireResponse</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>RelatedPerson</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>ServiceRequest</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>Specimen</td>
-      <td><nobr>create</nobr><br><nobr>update</nobr></td>
-      <td><nobr>delete</nobr></td>
+      <td>patient-feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-## 3. Guidance for "update" Trigger Implementation
+## 3. Guidance for patient-feed-event Trigger Implementation
 
-When implementing the `update` trigger for these optional resources, Servers should consider the following guidance:
+When implementing the `patient-feed-event` trigger for these optional resources, Servers should consider the following guidance:
 
 - **AllergyIntolerance**:
     - Initial allergy or intolerance information becomes available
@@ -212,7 +196,7 @@ When implementing the `update` trigger for these optional resources, Servers sho
     - Specimen status changes
     - Collection details are modified
 
-This guidance illustrates how the `update` trigger might be applied to the additional resources. Implementers eill document specific criteria for when `update` notifications are sent based on their system's capabilities and clinical relevance.
+This guidance illustrates how the `patient-feed-event` trigger might be applied to the additional resources. Implementers will document specific criteria for when `patient-feed-event` notifications are sent based on their system's capabilities and clinical relevance.
 
 ## 4. Future Enhancements
 
