@@ -69,13 +69,11 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 
 ### 4.1 Definition of patient-feed-event Trigger
 
-The `patient-feed-event` trigger encompasses the following scenarios:
+The `patient-feed-event` trigger encompasses scenarios where an event occurs that results in changes to a FHIR resource including:
 
-- A resource has been created
 - New or updated content is available for clinical use
 - Status changes affect the resource's usability or interpretation
 - Corrections or amendments modify the resource's meaning
-- A resource has been deleted
 
 > **Note**: 
 > 1. A `patient-feed-event` will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
