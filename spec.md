@@ -38,25 +38,25 @@ Guidance for supporting additional resources is provided in the [Additional Reso
   <tbody>
     <tr>
       <td>DiagnosticReport</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>DocumentReference</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
       <td>Encounter</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td>type</td>
     </tr>
     <tr>
       <td>Observation</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
@@ -67,9 +67,9 @@ Guidance for supporting additional resources is provided in the [Additional Reso
 
 ## 4. Triggering Events and Notifications
 
-### 4.1 Definition of patient-feed-event Trigger
+### 4.1 Definition of feed-event Trigger
 
-The `patient-feed-event` trigger can be implemented in two ways:
+The `feed-event` trigger can be implemented in two ways:
 
 1. **Event-Driven**: The system sends notifications when something meaningful happens (like a patient being admitted or a provider signing a note)
 2. **Data-Driven**: The system sends notifications when FHIR resources change directly
@@ -82,12 +82,12 @@ Servers SHALL implement at least one of these approaches and document which one(
 
 
 > **Note**: 
-> 1. A `patient-feed-event` will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
+> 1. A `feed-event` will not necessarily fire for every FHIR-visible change. Implementation flexibility allows servers to define the specific events that will appear as updates.
 > 2. Servers MAY overlay their own more specific event codes onto this generic trigger. These specific codes can be included in notifications and used for more granular filtering via the `trigger` parameter, providing clients with richer context about the nature of updates.
 
-### 4.2 Profile-Specific Mapping for "patient-feed-event" trigger
+### 4.2 Profile-Specific Mapping for "feed-event" trigger
 
-This section provides guidance for a minimum set of events to expose via the "patient-feed-event" trigger. Servers will publish detailed documentation of their trigger functionality based on this guidance.
+This section provides guidance for a minimum set of events to expose via the "feed-event" trigger. Servers will publish detailed documentation of their trigger functionality based on this guidance.
 
 - **US Core DocumentReference**:
     * A clinical note has new or updated content available, including draft content
@@ -210,7 +210,7 @@ Example Subscription request, demonstrating filters based on patient, category, 
     "extension": [
       {
         "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
-        "valueString": "Encounter?patient=123&trigger=patient-feed-event"
+        "valueString": "Encounter?patient=123&trigger=feed-event"
         //              ^ equivalent to "all available events"
       },
       {
@@ -305,8 +305,8 @@ Examples of potential adjustments:
      * Any throttling or batching mechanisms used to manage notification frequency
      * The expected latency between a resource change and the corresponding notification
      * Any limitations or edge cases that clients should be aware of
-   - Criteria for firing the `patient-feed-event` trigger, including examples of changes that would and would not result in a notification
-2. Clients SHALL review server documentation to understand the circumstances under which `patient-feed-event` notifications are triggered, as these may correspond to a subset of changes to data as visible over the FHIR REST API.
+   - Criteria for firing the `feed-event` trigger, including examples of changes that would and would not result in a notification
+2. Clients SHALL review server documentation to understand the circumstances under which `feed-event` notifications are triggered, as these may correspond to a subset of changes to data as visible over the FHIR REST API.
 3. Servers SHOULD provide clear error messages in `OperationOutcome.issue.details` when rejecting subscription requests due to unsupported features.
 
 ## 7. Additional Considerations
