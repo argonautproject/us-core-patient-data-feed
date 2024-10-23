@@ -20,100 +20,100 @@ The following table outlines additional resources that Servers may support for t
   <tbody>
     <tr>
       <td>AllergyIntolerance</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>CarePlan</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>CareTeam</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Condition</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>Coverage</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Goal</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Immunization</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>MedicationDispense</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>type<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>MedicationRequest</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Patient</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>_id<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>Procedure</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>QuestionnaireResponse</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>RelatedPerson</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
     <tr>
       <td>ServiceRequest</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>category<br>trigger</td>
       <td>code</td>
     </tr>
     <tr>
       <td>Specimen</td>
-      <td>patient-feed-event</td>
+      <td>feed-event</td>
       <td>patient<br>trigger</td>
       <td></td>
     </tr>
   </tbody>
 </table>
 
-## 3. Guidance for patient-feed-event Trigger Implementation
+## 3. Guidance for feed-event Trigger Implementation
 
-When implementing the `patient-feed-event` trigger for these optional resources, Servers should consider the following guidance:
+When implementing the `feed-event` trigger for these optional resources, Servers should consider the following guidance:
 
 - **AllergyIntolerance**:
     - Initial allergy or intolerance information becomes available
@@ -196,7 +196,7 @@ When implementing the `patient-feed-event` trigger for these optional resources,
     - Specimen status changes
     - Collection details are modified
 
-This guidance illustrates how the `patient-feed-event` trigger might be applied to the additional resources. Implementers will document specific criteria for when `patient-feed-event` notifications are sent based on their system's capabilities and clinical relevance.
+This guidance illustrates how the `feed-event` trigger might be applied to the additional resources. Implementers will document specific criteria for when `feed-event` notifications are sent based on their system's capabilities and clinical relevance.
 
 ## 4. Future Enhancements
 
