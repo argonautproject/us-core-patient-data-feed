@@ -164,13 +164,6 @@ Example of a Parameters resource for a notification with multiple triggers, incl
         {
           "name": "trigger",
           "valueCoding": {
-            "system": "http://hl7.org/fhir/us/core/CodeSystem/trigger",
-            "code": "update"
-          }
-        },
-        {
-          "name": "trigger",
-          "valueCoding": {
             "system": "http://example.com/ehr-events",
             "code": "lab_result_final"
           }
